@@ -1,0 +1,34 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { ChartType } from 'chart.js';
+import { MultiDataSet, Label } from 'ng2-charts';
+
+
+@Component({
+  selector: 'app-grafico-dona',
+  templateUrl: './grafico-dona.component.html',
+  styleUrls: ['./grafico-dona.component.css']
+})
+export class GraficoDonaComponent implements OnInit {
+
+    // Doughnut
+    @Input() public EtiquetasDona: Label[] = ['Renovaciones', 'Residencias'];
+    @Input() public DatosDona: MultiDataSet = [[350, 450]];
+    @Input() public tipoGraficaDona: ChartType = 'doughnut';
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
+
+
+   // events
+   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+}

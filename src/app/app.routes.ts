@@ -1,4 +1,4 @@
-// Mi archivo de rutas manual
+// Mi archivo de rutas manual, va a tener unicamente la 404 y aquellas que no requieran tener el template general de la app
 
 import { Routes, RouterModule } from '@angular/router';
 

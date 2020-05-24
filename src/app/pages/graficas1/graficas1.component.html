@@ -1,1 +1,64 @@
-<p>graficas1 works!</p>
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <h4 class="card-title">{{graficos.Residencias.leyenda}}</h4>
+            <div class="card-body">
+               
+            
+            <app-grafico-dona 
+             [EtiquetasDona] = "graficos.Residencias.labels" 
+             [DatosDona]="graficos.Residencias.data" 
+             [tipoGraficaDona]="graficos.Residencias.type">
+            </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <h4 class="card-title">{{graficos.Sexo.leyenda}}</h4>
+            <div class="card-body">
+              
+
+                <app-grafico-dona 
+                [EtiquetasDona] = "graficos.Sexo.labels" 
+                [DatosDona]="graficos.Sexo.data" 
+                [tipoGraficaDona]="graficos.Sexo.type">
+               </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+</div> 
+
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <h4 class="card-title">{{graficos.Paises.leyenda}}</h4>
+            <div class="card-body">
+              
+                <app-grafico-dona 
+                [EtiquetasDona] = "graficos.Paises.labels" 
+                [DatosDona]="graficos.Paises.data" 
+                [tipoGraficaDona]="graficos.Paises.type">
+               </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <h4 class="card-title">{{graficos.Edades.leyenda}}</h4>
+            <div class="card-body">
+              
+
+                <app-grafico-dona 
+                [EtiquetasDona] = "graficos.Edades.labels" 
+                [DatosDona]="graficos.Edades.data" 
+                [tipoGraficaDona]="graficos.Edades.type">
+               </app-grafico-dona>
+
+            </div>
+        </div>
+    </div>
+</div> 
