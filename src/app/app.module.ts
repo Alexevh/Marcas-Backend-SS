@@ -12,7 +12,10 @@ import { PagesModule } from './pages/pages.module';
 
 // Rutas
 import { APP_ROUTES } from './app.routes';
-//import { IncrementadorComponent } from './componentes/incrementador/incrementador.component';
+// import { IncrementadorComponent } from './componentes/incrementador/incrementador.component';
+
+/* Servicios  */
+import { AjustesService } from './servicios/ajustes.service';
 
 
 
@@ -28,9 +31,10 @@ import { APP_ROUTES } from './app.routes';
     APP_ROUTES,
     PagesModule,
     FormsModule,
+   
 
   ],
-  providers: [],
+  providers: [ AjustesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

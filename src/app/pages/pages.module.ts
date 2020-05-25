@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+/* Paginas */
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
@@ -8,10 +9,13 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.routes';
 import { IncrementadorComponent } from '../componentes/incrementador/incrementador.component';
+import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-personales.component';
+
 
 /* Graficas */
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.component';
+
 
 /* Este modulo controla todas las paginas alojadas en pages */
 @NgModule({
@@ -22,7 +26,8 @@ import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.c
         Graficas1Component,
         PagesComponent,
         IncrementadorComponent,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AjustesPersonalesComponent
     ],
     exports: [
         DashboardComponent,
