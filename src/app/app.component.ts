@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AjustesService } from './servicios/ajustes.service';
+import { AjustesService } from './servicios/servicios.index';
 
 @Component({
   selector: 'app-root',

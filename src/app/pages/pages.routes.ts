@@ -5,8 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
-import { PagesComponent } from './pages.component';
 import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-personales.component';
+
+/* Paginas comunes  o compartidas como el navbar, sidebar, 404, etc*/
+import { PagesComponent } from './pages.component';
+
 
 
 

@@ -1,9 +1,15 @@
-/*
-Template Name: Admin Pro Admin
-Author: Wrappixel
-Email: niravjoshi87@gmail.com
-File: js
-*/
+
+
+/* Como tengo dividida la pantalla de inicio, cuando se ejecuta el custom.js los menues no existen aun y por eso
+da un error y las cosas no funcionan, necesito poder inicializar los plugins a posteriori del login y para eso me voy
+a hacer una funcion que pueda llamar desde angular, lo que hice fue encapsular todo el js en una nueva funcion llamada init_plugins */
+function init_plugins(){
+
+
+
+
+
+
 $(function() {
     "use strict";
     $(function() {
@@ -155,3 +161,5 @@ $(function() {
     });
 
 });
+
+}

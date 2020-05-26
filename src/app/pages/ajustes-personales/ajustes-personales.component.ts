@@ -1,6 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { AjustesService } from '../../servicios/ajustes.service';
+import { AjustesService } from '../../servicios/servicios.index';
+
+
+
+
 
 
 @Component({
