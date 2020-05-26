@@ -16,16 +16,16 @@ import { PagesComponent } from './pages.component';
 /* Pages component tiene el esqueleto de la app, con los elementos generales colocados como el sidebar, navbar etc
   le definimos las rutas hijas que por ser hijas, cuando se llamen van a ser vistas en el router outlet del template
   en lugar del router-outlet del app.component.html que es el template general verdadero de la app por defecto
-*/
+*/ 
 
 const pagesRoutes: Routes = [
     {    path: '',
          component: PagesComponent,
           children: [
-                    {path: 'progress', component: ProgressComponent},
-                    {path: 'graficas1', component: Graficas1Component},
-                    {path: 'dashboard', component: DashboardComponent},
-                    {path: 'ajustes', component: AjustesPersonalesComponent},
+                    {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},
+                    {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Estadisticas'}},
+                    {path: 'dashboard', component: DashboardComponent, data: {titulo: 'Inicio'}},
+                    {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
                     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   ]
 },
