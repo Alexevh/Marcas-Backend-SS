@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+/* acrive forms, necesario para trabajar con formularios NG */
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // Componentes
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +23,7 @@ import { ServicioModule } from './servicios/servicio.module';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +36,7 @@ import { ServicioModule } from './servicios/servicio.module';
     APP_ROUTES,
     PagesModule,
     FormsModule,
+    ReactiveFormsModule,
     ServicioModule
    
 
