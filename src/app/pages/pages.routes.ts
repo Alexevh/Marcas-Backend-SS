@@ -9,6 +9,7 @@ import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-persona
 
 /* Paginas comunes  o compartidas como el navbar, sidebar, 404, etc*/
 import { PagesComponent } from './pages.component';
+import { LoginGuardGuard } from '../servicios/guards/login-guard.guard';
 
 
 
@@ -21,6 +22,8 @@ import { PagesComponent } from './pages.component';
 const pagesRoutes: Routes = [
     {    path: '',
          component: PagesComponent,
+         /* verifico que este logeado */
+         canActivate: [LoginGuardGuard],
           children: [
                     {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},
                     {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Estadisticas'}},

@@ -10,7 +10,8 @@ export class Usuario{
         public password: string,
         public rol: string,
         public mision: string,
-        public _id: string
+        public _id: string,
+        public token: string
 
     ){}
     

@@ -38,6 +38,19 @@ export class RegistroComponent implements OnInit {
 
   registrarUsuario(){
 
+/* no voy a dejar hacer usuarios */
+
+Swal.fire({
+  title: 'Importante',
+  text: 'El registro de usuarios no esta disponible',
+  icon: 'error'
+});
+ return;
+
+ /* dejo esto comentado por si en elgun momento quiero registrar usuarios
+ 
+ 
+ 
     if (this.forma.invalid){
       Swal.fire({
         title: 'Importante',
@@ -56,6 +69,9 @@ export class RegistroComponent implements OnInit {
     });
      return;
    }
+ 
+ */
+
 
   }
 
