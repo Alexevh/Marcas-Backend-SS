@@ -20,7 +20,10 @@ export class LoginComponent implements OnInit {
   recuerdame = false;
   uid = '';
 
-  constructor(public router: Router, public usrService: UsuarioService) { }
+  constructor(public router: Router, public usrService: UsuarioService) { 
+
+    init_plugins();
+  }
 
   ngOnInit() {
 
@@ -38,13 +41,14 @@ export class LoginComponent implements OnInit {
     return;
     }
 
-    let usuario = new Usuario(null, formulario.value.uid, formulario.value.password, null, null, null, null  );
+    let usuario = new Usuario(null, formulario.value.uid, formulario.value.password, null, null, null, null, null, null  );
     this.usrService.login(usuario, formulario.value.recuerdame).subscribe( (resp:any)=> {
       console.log(resp);
+      this.router.navigate(['/dashboard']);
 
     });
 
-    this.router.navigate(['/dashboard']);
+   
   }
 
 }

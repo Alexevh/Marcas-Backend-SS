@@ -11,7 +11,9 @@ export class Usuario{
         public rol: string,
         public mision: string,
         public _id: string,
-        public token: string
+        public token: string,
+        public foto: string,
+        public email: string
 
     ){}
     

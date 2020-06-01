@@ -9,6 +9,8 @@ import { Usuario } from '../../modelos/usuario.model';
 })
 export class HeaderComponent implements OnInit {
 
+  usuario: Usuario;
+
   constructor(public usuariosrv: UsuarioService) {
 
     
@@ -17,6 +19,9 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.usuario = this.usuariosrv.usuario;
   }
+
 
 }

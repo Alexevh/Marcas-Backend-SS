@@ -1,0 +1,78 @@
+<div class="row">
+
+
+
+    <div class="col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Perfil del usuario</h4>
+                    <h6 class="card-subtitle">{{usuario.nombre}}</h6>
+                    <form class="form p-t-20" ngNativeValidate #f="ngForm" (ngSubmit)="enviar(f.value)">
+                        <div class="form-group">
+                            <label for="exampleInputuname2">Nombre completo</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                                <input  [ngModel]="usuario.nombre" name="nombre"  type="text" class="form-control" placeholder="usuario.nombre">
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Correo</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1">@</span>
+                                <input [ngModel]="usuario.email" name="email" type="email" class="form-control" placeholder="Email del usuario">
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="exampleInputEmail2">Mision</label>
+                            <div class="input-group">
+                                <span class="input-group-text" id="basic-addon1"><i class="ti-world"></i></span>
+                                <input disabled [ngModel]="usuario.mision" name="mision" type="text" class="form-control" id="exampleInputEmail2" placeholder="">
+                                
+                            </div>
+                        </div>
+                    
+                        <div class="form-group">
+                            <div class="checkbox checkbox-success">
+                                <input id="checkbox2" type="checkbox">
+                                <label for="checkbox2"> Recordarme </label>
+                            </div>
+                        </div>
+                        <div class="text-left">
+                            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                                <i class="fa fa-save"></i>
+                                Guardar</button>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body" align="center">
+                        <h4 class="card-title">Foto del usuario</h4>
+                        <h6 class="card-subtitle">{{usuario.nombre}}</h6>
+
+                        <img  *ngIf="!imagenTemp" [src]="usuario.foto | imagen"  class="w150">
+                        <img *ngIf="imagenTemp"  [src]="imagenTemp"  class="w150">
+
+                        <input type="file" (change)="seleccionImagen($event.target.files[0])">
+                        <br>
+                        <br>
+                        <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-block btn-success waves-effect waves-light m-r-10">
+                                <i class="fa fa-recycle"></i>
+                                Actualizar</button>
+                      
+                        
+
+                    </div>
+                </div>
+        </div>
+     
+
+</div>

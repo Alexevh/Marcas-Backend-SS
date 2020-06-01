@@ -15,6 +15,9 @@ import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-persona
 /* Graficas */
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { PerfilComponent } from './perfil/perfil.component';
+import { CommonModule } from '@angular/common';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -27,7 +30,9 @@ import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.c
         PagesComponent,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AjustesPersonalesComponent
+        AjustesPersonalesComponent,
+        PerfilComponent,
+       
     ],
     exports: [
         DashboardComponent,
@@ -40,7 +45,9 @@ import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.c
         SharedModule,
         PAGES_ROUTES,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule,
+        CommonModule
       ],
 
 })

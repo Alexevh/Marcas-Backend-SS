@@ -10,6 +10,7 @@ import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-persona
 /* Paginas comunes  o compartidas como el navbar, sidebar, 404, etc*/
 import { PagesComponent } from './pages.component';
 import { LoginGuardGuard } from '../servicios/guards/login-guard.guard';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -29,6 +30,7 @@ const pagesRoutes: Routes = [
                     {path: 'graficas1', component: Graficas1Component, data: {titulo: 'Estadisticas'}},
                     {path: 'dashboard', component: DashboardComponent, data: {titulo: 'Inicio'}},
                     {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
+                    {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
                     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   ]
 },
