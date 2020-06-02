@@ -17,7 +17,7 @@ export class LoginGuardGuard implements CanActivate {
   {
 
     if (this.usrservice.estaLogeado()){
-      console.log('navegacion acepptada');
+      //console.log('navegacion acepptada');
       return true;
 
     } else {

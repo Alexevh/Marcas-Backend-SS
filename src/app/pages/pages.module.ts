@@ -18,6 +18,8 @@ import { GraficoDonaComponent } from '../componentes/grafico-dona/grafico-dona.c
 import { PipesModule } from '../pipes/pipes.module';
 import { PerfilComponent } from './perfil/perfil.component';
 import { CommonModule } from '@angular/common';
+import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ModaluploadComponent } from '../componentes/modalupload/modalupload.component';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -32,6 +34,9 @@ import { CommonModule } from '@angular/common';
         GraficoDonaComponent,
         AjustesPersonalesComponent,
         PerfilComponent,
+        UsuariosComponent,
+        ModaluploadComponent
+       
        
     ],
     exports: [

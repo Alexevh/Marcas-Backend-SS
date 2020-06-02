@@ -25,11 +25,14 @@ import { ServicioModule } from './servicios/servicio.module';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistroComponent,
+   
    
     //IncrementadorComponent
   ],

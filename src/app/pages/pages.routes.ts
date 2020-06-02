@@ -11,6 +11,7 @@ import { AjustesPersonalesComponent } from './ajustes-personales/ajustes-persona
 import { PagesComponent } from './pages.component';
 import { LoginGuardGuard } from '../servicios/guards/login-guard.guard';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 
@@ -31,6 +32,9 @@ const pagesRoutes: Routes = [
                     {path: 'dashboard', component: DashboardComponent, data: {titulo: 'Inicio'}},
                     {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
                     {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
+                    
+                    // Menu Director
+                    {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento usuarios'}},
                     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   ]
 },

@@ -8,5 +8,8 @@ export { SidebarService } from './shared/sidebar.service';
 export { UsuarioService } from './usuario/usuario.service';
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { SubirArchivoService } from './archivos/subir-archivo.service';
+export { ModaluploadService } from '../componentes/modalupload/modalupload.service';
+
+
 
 

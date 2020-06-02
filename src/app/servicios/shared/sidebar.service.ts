@@ -22,6 +22,7 @@ export class SidebarService {
         { titulo: 'Alta Renovacion', url: '/alta-ren'},
         { titulo: 'Listado Residencias', url: '/lista-resi'},
         { titulo: 'Listado Renovaciones', url: '/lista-ren'},
+        { titulo: 'Personas', url: '/personas'},
       ]
     }, 
     {
@@ -32,6 +33,7 @@ export class SidebarService {
         { titulo: 'Firmar Resoluciones', url: '/alta-/firma-resoluciones'},
         { titulo: 'Firmar Vouchers', url: '/firma-vouchers'},
         { titulo: 'Estadisticas', url: '/graficas1'},
+        { titulo: 'Usuarios', url: '/usuarios'},
        
       ]
     }

@@ -5,8 +5,8 @@ import { URL_SERVICIOS } from "../../config/config";
 import { filter, map } from "rxjs/operators";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import { HttpHeaders } from '@angular/common/http';
-import { SubirArchivoService } from '../archivos/subir-archivo.service';
+import { HttpHeaders } from "@angular/common/http";
+import { SubirArchivoService } from "../archivos/subir-archivo.service";
 
 @Injectable({
   providedIn: "root",
@@ -15,7 +15,11 @@ export class UsuarioService {
   usuario: Usuario;
   token: string;
 
-  constructor(public http: HttpClient, public router: Router, public subir: SubirArchivoService ){
+  constructor(
+    public http: HttpClient,
+    public router: Router,
+    public subir: SubirArchivoService
+  ) {
     this.cargarStorage();
   }
 
@@ -73,20 +77,20 @@ export class UsuarioService {
     this.router.navigate(["/login"]);
   }
 
-  actualizarUsuario(usuario: Usuario, ) {
+  actualizarUsuario(usuario: Usuario) {
     let url = URL_SERVICIOS + "/usuario/" + usuario._id;
 
-
-    var  reqHeaders  = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-token': this.token
-    })
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
 
     /* Ahora le mando el token 
      el baclend acepta tanto que le manden el token por URL como por headers, a mi me gusta enviarlopor headers 
      pero si lo fuera a enviar por url seria  //url += "?token=" + this.token; y en el put le quito los headers
     */
-    return this.http.put(url, usuario, {headers: reqHeaders}).pipe(
+   
+    return this.http.put(url, usuario, { headers: reqHeaders }).pipe(
       map((resp: any) => {
         //si el usuario s esta actualziando a si mismo lo guardo en el storage
         if (usuario._id === this.usuario._id) {
@@ -96,15 +100,15 @@ export class UsuarioService {
 
         //return true;
       })
+      
     );
   }
 
-
   cambiarImagen(archivo: File, id: string) {
     this.subir
-      .subirArchivo(archivo, "usuarios", id, 'foto', this.token)
+      .subirArchivo(archivo, "usuarios", id, "foto", this.token)
       .then((resp: any) => {
-        console.log(resp)
+        console.log(resp);
         this.usuario.foto = resp.foto;
         this.actualizarUsuario(this.usuario);
         Swal.fire("Exito!", "Se cambio la imagen correctamente", "success");
@@ -114,6 +118,39 @@ export class UsuarioService {
         console.log(err);
       });
   }
-   
 
+  cargarUsuarios(desde) {
+    let url = URL_SERVICIOS + "/usuario?desde=" + desde;
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+    console.log("me llega desde ", desde);
+    return this.http.get(url, { headers: reqHeaders });
+  }
+
+
+  buscarUsuarios(termino: string){
+    let url = URL_SERVICIOS + "/busqueda/coleccion/usuarios/" + termino;
+   
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+    
+    return this.http.get(url, { headers: reqHeaders });
+  }
+
+
+  borrarUsuario(usuario: Usuario){
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+    
+
+    let url = URL_SERVICIOS+"/usuario/"+usuario._id;
+    return this.http.delete(url, { headers: reqHeaders });
+  
+   }
 }
