@@ -68,7 +68,7 @@ export class ModaluploadComponent implements OnInit {
      
       //notifico que se subio la imagen, en la respuesta viene el medico o el hospiotal etc
       this.modalservice.notificacion.emit(resp);
-      this.modalservice.ocultarModal();
+      this.cerrarModal();
       
 
     }).catch(err => {
