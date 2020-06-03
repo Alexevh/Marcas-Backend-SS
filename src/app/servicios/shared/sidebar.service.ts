@@ -23,6 +23,8 @@ export class SidebarService {
         { titulo: 'Listado Residencias', url: '/lista-resi'},
         { titulo: 'Listado Renovaciones', url: '/lista-ren'},
         { titulo: 'Personas', url: '/personas'},
+        { titulo: 'Alta Personas', url: '/alta-personas'},
+
       ]
     }, 
     {

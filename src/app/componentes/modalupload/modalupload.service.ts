@@ -15,7 +15,7 @@ export class ModaluploadService {
   public notificacion = new EventEmitter<any>();
   
     constructor() {
-      console.log('se llamo al modal srvice')
+      
      }
   
   
@@ -31,6 +31,7 @@ export class ModaluploadService {
         por ejemplo foto, huellas, certificado de nacimiento, etc)
       */
      mostrarModal(tipo: string, id: string, campo: string){
+      
       this.id = id;
       this.tipo = tipo;
       this.oculto = '';

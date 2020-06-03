@@ -60,7 +60,7 @@ export class ModaluploadComponent implements OnInit {
 
   actualizarImagen(){
 
-    //console.log('me llega el token', this.uservice.token)
+ 
 
     this.cargaarchivo.subirArchivo(this.imagenSubir, this.modalservice.tipo, this.modalservice.id,
        this.modalservice.campo, this.uservice.token).then( resp => {

@@ -20,6 +20,11 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { CommonModule } from '@angular/common';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModaluploadComponent } from '../componentes/modalupload/modalupload.component';
+import { PersonasComponent } from './personas/personas.component';
+import { AltapersonasComponent } from './altapersonas/altapersonas.component';
+4
+/* acrive forms, necesario para trabajar con formularios NG */
+import {  ReactiveFormsModule } from '@angular/forms';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -35,7 +40,9 @@ import { ModaluploadComponent } from '../componentes/modalupload/modalupload.com
         AjustesPersonalesComponent,
         PerfilComponent,
         UsuariosComponent,
-        ModaluploadComponent
+        ModaluploadComponent,
+        PersonasComponent,
+        AltapersonasComponent
        
        
     ],
@@ -52,7 +59,8 @@ import { ModaluploadComponent } from '../componentes/modalupload/modalupload.com
         FormsModule,
         ChartsModule,
         PipesModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
       ],
 
 })

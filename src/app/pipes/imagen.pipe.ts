@@ -9,7 +9,7 @@ export class ImagenPipe implements PipeTransform {
 
   transform(imagen: string, tipo:string='usuario'): any {
     
-    let url = URL_SERVICIOS+'/documentos/'
+    let url = URL_SERVICIOS+'/documentos'
 
     //si no viene una imagen tiro cualquier sarasa y el backend devuelve una foto por defecto
     if (!imagen){
@@ -41,6 +41,7 @@ export class ImagenPipe implements PipeTransform {
       break;
     }
 
+  
     return url;
 
  
