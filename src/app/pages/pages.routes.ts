@@ -14,6 +14,8 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { PersonasComponent } from './personas/personas.component';
 import { AltapersonasComponent } from './altapersonas/altapersonas.component';
+import { TramitesComponent } from './tramites/tramites.component';
+import { TramiteComponent } from './tramites/tramite.component';
 
 
 
@@ -35,11 +37,13 @@ const pagesRoutes: Routes = [
                     {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
                     {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
                     {path: 'personas', component: PersonasComponent, data: {titulo: 'Personas'}},
-                    {path: 'alta-personas', component: AltapersonasComponent, data: {titulo: 'Nueva persona'}},
+                    {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}},
+                    {path: 'tramite/:id', component: TramiteComponent, data: {titulo: 'Actualizar Tramite'}},
                     
                     // Menu Director
                     {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento usuarios'}},
                     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+                    {path: 'alta-personas', component: AltapersonasComponent, data: {titulo: 'Nueva persona'}},
   ]
 },
 

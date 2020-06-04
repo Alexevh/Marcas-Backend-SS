@@ -29,8 +29,9 @@ export class ModaluploadComponent implements OnInit {
       return;
     }
 
-    //verifico si es una imagen
-    if (archivo.type.indexOf('image')<0){
+    /* verifico si es una imagen 
+    
+        if (archivo.type.indexOf('image')<0 ){
       Swal.fire({
         title: 'Error!',
         text:  'El archivo seleccionado no es una imagen',
@@ -40,6 +41,8 @@ export class ModaluploadComponent implements OnInit {
       this.imagenSubir = null;
       return;
     }
+    */
+
 
     this.imagenSubir = archivo;
 

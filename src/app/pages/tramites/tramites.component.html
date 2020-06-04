@@ -1,0 +1,87 @@
+<!--- caja de busqueda -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <input
+          (keyup)="buscarTramite(input.value)"
+          type="text"
+          class="form-control"
+          placeholder="Buscar tramites"
+          #input
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Spinner de carga -->
+<div class="row animated fade-In" *ngIf="cargando">
+  <div class="col-sm-12">
+    <div class="alert alert-warning text-center">
+      <strong>Cargando...</strong>
+      <br />
+      <i class="fa fa-refresh fa-spin fa-2x"></i>
+      <br />
+      Espere
+    </div>
+  </div>
+</div>
+
+<!-- alta de tramite, esto no va a estar aca, lo dejo para probar nomas-->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="text-right">
+            <button [routerLink]="['/tramite', 'nuevo']" type="button" class="btn waves-effect waves-light btn-rounded btn-primary" >
+                <i class="fa fa-plus"></i>
+                Nuevo Tramite
+            </button>
+        </div>
+
+        <h3 class="card-title">Tramites totales (<small>{{totalRegistros}}</small>)</h3> 
+
+
+        <table class="table table-hover">
+
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Agenda</th>
+                <th>Tipo Tramite</th>
+                <th>Estado</th>
+                <th>Tipo Doc</th>
+                <th>Documento Numero</th>
+            </tr>
+            <tbody>
+                <tr *ngFor="let tramite of tramites">
+                    <td class="w70">  <img [src]="tramite.persona.foto | imagen: 'persona'" class="img50" > </td>
+                <td>{{tramite.persona.nombre}}</td>
+                <td> {{tramite.agenda}}</td>
+                <td> {{tramite.tipoTramite}}</td>
+                <td>{{tramite.estado}}</td>
+                <td>{{tramite.persona.tipoDocumento}}</td>
+                <td>{{tramite.persona.documentoNumero}}</td>
+                <td><button [routerLink]="['/tramite', tramite._id]" class="btn btn-primary"><i class="fa fa-edit"></i></button>
+                   
+                </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <button class="btn btn-secondary" (click)="cambiarDesde(-5)">
+            <i class="fa fa-arrow-left"></i>
+        Anteriores
+       </button>
+        <button class="btn btn-secondary"  (click)="cambiarDesde(5)">
+                Siguientes
+         <i class="fa fa-arrow-right"></i></button>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

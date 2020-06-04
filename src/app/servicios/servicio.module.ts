@@ -11,6 +11,8 @@ import {
   SubirArchivoService,
   ModaluploadService,
   PersonaService,
+  TramiteService
+  
 } from "./servicios.index";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
@@ -29,6 +31,8 @@ providers[] del app.module.ts pero si tengo 10 servicios tendria 10 lineas, para
     SubirArchivoService,
     ModaluploadService,
     PersonaService,
+    TramiteService,
+    
   ],
 })
 export class ServicioModule {}

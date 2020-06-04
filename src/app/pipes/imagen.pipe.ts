@@ -11,6 +11,9 @@ export class ImagenPipe implements PipeTransform {
     
     let url = URL_SERVICIOS+'/documentos'
 
+    //console.log('me lleg de  imagen ', imagen);
+    //console.log('me lleg de  tipo ', tipo);
+
     //si no viene una imagen tiro cualquier sarasa y el backend devuelve una foto por defecto
     if (!imagen){
       url+='/usuarios/xxx'
@@ -31,7 +34,7 @@ export class ImagenPipe implements PipeTransform {
       case 'persona':
            url+='/personas/'+imagen;
       break;
-      case 'hospital':
+      case 'documentos':
            url+='/tramites/'+imagen;
       break;
       default:

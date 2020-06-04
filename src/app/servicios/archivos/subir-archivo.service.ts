@@ -51,7 +51,11 @@ export class SubirArchivoService {
         "?token=" +
         token;
       //ajax
-
+      /* a mi me gusta mas pasarlo por headers pero lo habia reuelto asi antes, si lo quiero paar por headers
+      lo tengo que mandar asi 
+       xhr.setRequestHeader('token', this._usuarioService.token);
+     
+      */
       xhr.open("PUT", url, true);
       xhr.send(formData);
     });

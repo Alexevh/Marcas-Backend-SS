@@ -25,6 +25,8 @@ import { AltapersonasComponent } from './altapersonas/altapersonas.component';
 4
 /* acrive forms, necesario para trabajar con formularios NG */
 import {  ReactiveFormsModule } from '@angular/forms';
+import { TramitesComponent } from './tramites/tramites.component';
+import { TramiteComponent } from './tramites/tramite.component';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -42,7 +44,9 @@ import {  ReactiveFormsModule } from '@angular/forms';
         UsuariosComponent,
         ModaluploadComponent,
         PersonasComponent,
-        AltapersonasComponent
+        AltapersonasComponent,
+        TramitesComponent,
+        TramiteComponent
        
        
     ],

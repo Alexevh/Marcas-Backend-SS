@@ -79,7 +79,7 @@ export class PersonaService {
 
     return this.http.put(url, persona, { headers: reqHeaders });
       
-   
+    
   }
 
 

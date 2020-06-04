@@ -20,8 +20,7 @@ export class SidebarService {
         { titulo: 'Inicio', url: '/dashboard'},
         { titulo: 'Alta Residencias', url: '/alta-resi'},
         { titulo: 'Alta Renovacion', url: '/alta-ren'},
-        { titulo: 'Listado Residencias', url: '/lista-resi'},
-        { titulo: 'Listado Renovaciones', url: '/lista-ren'},
+        { titulo: 'Listado Tramites', url: '/tramites'},
         { titulo: 'Personas', url: '/personas'},
         { titulo: 'Alta Personas', url: '/alta-personas'},
 

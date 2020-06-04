@@ -1,0 +1,124 @@
+<div class="row">
+
+    <div class="col-6">
+        <form #f="ngForm" (ngSubmit)="guardarTramite(f)">
+            <div class="form-group">
+                <label for="agenda">Agenda</label>
+                <input type="text" class="form-control" [(ngModel)]="tramite.agenda" name="agenda" placeholder="Agenda de persona">
+            </div>
+          
+            <div class="form-group">
+                <label for="nombre">Solicitante</label>
+                <input type="text" class="form-control"  [(ngModel)]="tramite.persona.nombre" name="nombre" placeholder="Nombre de persona">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoDocumento">Tipo de Documento </label>
+                <td>
+                    <select [(ngModel)]="tramite.persona.tipoDocumento" name="tipoDocumento" class="form-control">
+                        <option value="Pasaporte"> Pasaporte</option>
+                        <option value="Cedula"> CI - Uruguaya</option>
+                        <option value="Otro"> Otro</option>
+                     </select>
+
+                </td>
+            </div>
+
+            <div class="form-group">
+                <label for="documentoNumero">Numero de Documento</label>
+                <input type="text" class="form-control" [(ngModel)]="tramite.persona.documentoNumero" name="documentoNumero" placeholder="Numero de doc">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" [(ngModel)]="tramite.persona.email" name="email" >
+            </div>
+
+            <div class="form-group">
+                <label for="fecha_inicio">Fecha Inicio</label>
+                <input type="date" [(ngModel)]="tramite.fecha_inicio" class="form-control" name="fecha_inicio" >
+            </div>
+
+
+            <div class="form-group">
+                <label for="estado">Estado</label>
+                <select [(ngModel)]="tramite.estado" name="estado" class="form-control">
+                    <option value="Solicitada"> Solicitada</option>
+                    <option value="Aplicada"> Aplicada</option>
+                    <option value="Informes"> Informes</option>
+                    <option value="Pase Direccion"> Pase a Direccion</option>
+                    <option value="Concedida"> Concedida</option>
+                    <option value="Denegada"> Denegada</option>
+                    <option value="Cancelada"> Cancelada</option>
+                    <option value="Cancelacion Administrativa"> Cancelacion Administrativa</option>
+                 </select>
+            </div>
+
+ 
+            <!-- fin de campos -->
+            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Guardar</button>
+            <button type="submit" class="btn btn-inverse waves-effect waves-light">Salir</button>
+
+        </form>
+
+       
+    </div>
+
+    <div class="col-lg-5">
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Foto de la persona</h4>
+                <h6 class="card-subtitle">{{tramite.persona.nombre}}</h6>
+                <img [src]="tramite.persona.foto | imagen: 'persona'" class="w150"(click)="mostrarModal(tramite.persona._id,'foto')" >
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Huellas de la persona</h4>
+                <h6 class="card-subtitle">{{tramite.persona.nombre}}</h6>
+                <img [src]="tramite.persona.huellas | imagen: 'persona'" class="w150"(click)="mostrarModal(tramite.persona._id,'huellas')" >
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body" align="center">
+                <h4 class="card-title">Documentos de la persona</h4>
+                <h6 class="card-subtitle">{{tramite.persona.nombre}}</h6>
+                <div class="form-group">
+                    <label for="documentos">Documentos</label>
+                    
+                    <table class="table table-hover" name="documentos">
+                        <tr>
+                            <th> Documento</th>
+                            <th> Opciones</th>
+                        </tr>
+                       
+                        <tr *ngFor="let documento of tramite.documentos">
+                            <td> {{documento.nombre}}</td>
+                           
+                            <td><button (click)="borrarDocumento(documento)"  class="btn btn-primary"><i class="fa fa-trash"></i></button>
+                                <a (click)="descargarDocumento(documento)" class="btn btn-info"><i class="fa fa-download"></i></a>
+                             
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="text-right">
+                                    <button (click)="mostrarModalDocumentos(tramite._id, 'nombredoc')"  type="button" class="btn waves-effect waves-light btn-rounded btn-primary" >
+                                        <i class="fa fa-plus"></i>
+                                        Nuevo documento
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+    
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+
+</div>
