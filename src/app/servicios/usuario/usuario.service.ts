@@ -74,6 +74,25 @@ export class UsuarioService {
     }
   }
 
+  renovarToken(){
+    let url = URL_SERVICIOS + "/login/renovartoken/";
+
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+
+    return this.http.get(url, { headers: reqHeaders }).subscribe( (resp:any) =>{
+      this.token = resp.token;
+      localStorage.setItem('token', this.token);
+    }, (err)=> {
+      /* si no pude renovar el otken lo mando al login rompiendo todo */
+      Swal.fire("Error!", "No fue posible renovar las credenciales, sera redirijido al login", "error");
+      this.logout();
+    });
+
+  }
+
   logout() {
     this.usuario = null;
     this.token = null;

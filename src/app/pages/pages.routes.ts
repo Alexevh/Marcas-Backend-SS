@@ -18,6 +18,7 @@ import { TramitesComponent } from './tramites/tramites.component';
 import { TramiteComponent } from './tramites/tramite.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { DirectorGuard } from '../servicios/guards/director.guard';
+import { VerificatokenGuard } from '../servicios/guards/verificatoken.guard';
 
 
 
@@ -30,7 +31,10 @@ import { DirectorGuard } from '../servicios/guards/director.guard';
 const pagesRoutes: Routes = [
     {    path: '',
          component: PagesComponent,
-         /* verifico que este logeado */
+         /* verifico que este logeado y de paso la validez del token, quizas podriamso ver alguna pagina que se vea casi siempre 
+         le habia puesto tambien que verifique el token (verificatokengard) pero luego lo saque por que me parecia exagerado que
+         cada vez que cambia de pagina le valide el token, pero podriamos ponerlo ahi, es cuestion de ver el rendimiento
+         */
          canActivate: [LoginGuardGuard],
           children: [
                     {path: 'progress', component: ProgressComponent, data: {titulo: 'Progress'}},
@@ -39,7 +43,7 @@ const pagesRoutes: Routes = [
                     {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
                     {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
                     {path: 'personas', component: PersonasComponent, data: {titulo: 'Personas'}},
-                    {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}},
+                    {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}, canActivate: [VerificatokenGuard]},
                     {path: 'tramite/:id', component: TramiteComponent, data: {titulo: 'Actualizar Tramite'}},
                     {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Busqueda general'}},
                     

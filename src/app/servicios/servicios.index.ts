@@ -2,6 +2,7 @@
 
 
 
+
 /*  Este es el indice de servicios, le va a decir al modulo de servicio */
 export { AjustesService } from "./ajustes/ajustes.service";
 export { SharedService } from './shared/shared.service';
@@ -13,6 +14,7 @@ export { ModaluploadService } from '../componentes/modalupload/modalupload.servi
 export { PersonaService } from './persona/persona.service';
 export { TramiteService } from './tramite/tramite.service';
 export { DirectorGuard } from './guards/director.guard';
+export { VerificatokenGuard } from './guards/verificatoken.guard';
 
 
 
