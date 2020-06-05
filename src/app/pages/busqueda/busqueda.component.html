@@ -1,0 +1,55 @@
+<div class="row">
+
+ 
+    <div class="col-6">
+      <div class="card">
+       
+        <div class="card-body">
+            <h3 class="card-title">Personas</h3>
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor=" let persona of personas" [routerLink]="['/personas']">
+                        <td class="w70">  <img [src]="persona.foto | imagen: 'persona'" class="img50"> </td>
+                        <td> {{persona.nombre}} </td>
+                      
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="alert alert-info" *ngIf="personas.length===0">No se encontraron registros para esta busqueda</div>
+
+        </div>
+      </div>
+    </div>
+  
+
+  
+    <div class="col-6">
+      <div class="card">
+         
+        <div class="card-body">
+            <h3 class="card-title">Tramites</h3>
+            <table class="table table-hover">
+                <tbody>
+                    <tr *ngFor="let tramite of tramites">
+                        <td class="w70">  <img [src]="tramite.persona.foto | imagen: 'persona'" class="img50" > </td>
+                        <td> {{tramite.agenda}} </td>
+                        <td> {{tramite.estado}} </td>
+                        <td>
+                            <button class="btn btn-primary" [routerLink]="['/tramite', tramite._id]" >
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="alert alert-info" *ngIf="tramites.length===0">No se encontraron registros para esta busqueda</div>
+        </div>
+      </div>
+    </div>
+ 
+
+
+
+</div>

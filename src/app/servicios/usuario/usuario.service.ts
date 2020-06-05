@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Usuario } from "../../modelos/usuario.model";
 import { URL_SERVICIOS } from "../../config/config";
-import { filter, map } from "rxjs/operators";
+import { filter, map, catchError } from "rxjs/operators";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { HttpHeaders } from "@angular/common/http";
@@ -14,6 +14,7 @@ import { SubirArchivoService } from "../archivos/subir-archivo.service";
 export class UsuarioService {
   usuario: Usuario;
   token: string;
+  menu: any =[];
 
   constructor(
     public http: HttpClient,
@@ -34,29 +35,34 @@ export class UsuarioService {
     /* llamo al post, podria mandar los parametros aparte pero como en usuario tengo todo no es requerido */
     return this.http.post(url, usuario).pipe(
       map((resp: any) => {
-        this.guardarStorage(resp.token, resp.usuario);
+        this.guardarStorage(resp.token, resp.usuario, resp.menu);
 
         return true;
       })
     );
   }
 
-  guardarStorage(token: string, usuario: Usuario) {
+  guardarStorage(token: string, usuario: Usuario, menu: any) {
     //localStorage.setItem('id', id);
     localStorage.setItem("token", token);
     localStorage.setItem("usuario", JSON.stringify(usuario));
+    localStorage.setItem("menu", JSON.stringify(menu));
 
     this.usuario = usuario;
     this.token = token;
+    this.menu = menu;
   }
 
   cargarStorage() {
     if (localStorage.getItem("token")) {
       this.token = localStorage.getItem("token");
       this.usuario = JSON.parse(localStorage.getItem("usuario"));
+      this.menu = JSON.parse(localStorage.getItem("menu"));
+
     } else {
       this.token = null;
       this.usuario = null;
+      this.menu  = [];
     }
   }
 
@@ -71,8 +77,10 @@ export class UsuarioService {
   logout() {
     this.usuario = null;
     this.token = null;
+    this.menu=[];
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
+    localStorage.removeItem("menu");
 
     this.router.navigate(["/login"]);
   }
@@ -95,13 +103,12 @@ export class UsuarioService {
         //si el usuario s esta actualziando a si mismo lo guardo en el storage
         if (usuario._id === this.usuario._id) {
           this.usuario = resp.usuario;
-          this.guardarStorage(this.token, usuario);
+          this.guardarStorage(this.token, usuario, resp.menu);
+          return true;
         }
-
-        //return true;
-      })
+      }),
       
-    );
+    )
   }
 
   cambiarImagen(archivo: File, id: string) {
@@ -112,7 +119,7 @@ export class UsuarioService {
         this.usuario.foto = resp.foto;
         this.actualizarUsuario(this.usuario);
         Swal.fire("Exito!", "Se cambio la imagen correctamente", "success");
-        this.guardarStorage(this.token, this.usuario);
+        this.guardarStorage(this.token, this.usuario, resp.menu);
       })
       .catch((err) => {
         console.log(err);

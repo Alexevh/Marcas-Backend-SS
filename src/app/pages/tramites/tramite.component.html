@@ -8,6 +8,11 @@
             </div>
           
             <div class="form-group">
+                <label for="agenda">Agenda Inicial</label>
+                <input type="text" class="form-control" [(ngModel)]="tramite.persona.agendainicial" name="agendainicial" placeholder="Agenda de persona al inicio">
+            </div>
+
+            <div class="form-group">
                 <label for="nombre">Solicitante</label>
                 <input type="text" class="form-control"  [(ngModel)]="tramite.persona.nombre" name="nombre" placeholder="Nombre de persona">
             </div>

@@ -27,6 +27,7 @@ import { AltapersonasComponent } from './altapersonas/altapersonas.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { TramitesComponent } from './tramites/tramites.component';
 import { TramiteComponent } from './tramites/tramite.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -46,7 +47,8 @@ import { TramiteComponent } from './tramites/tramite.component';
         PersonasComponent,
         AltapersonasComponent,
         TramitesComponent,
-        TramiteComponent
+        TramiteComponent,
+        BusquedaComponent
        
        
     ],

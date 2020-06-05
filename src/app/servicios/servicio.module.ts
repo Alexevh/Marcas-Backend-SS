@@ -11,7 +11,8 @@ import {
   SubirArchivoService,
   ModaluploadService,
   PersonaService,
-  TramiteService
+  TramiteService,
+  DirectorGuard
   
 } from "./servicios.index";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
@@ -28,6 +29,7 @@ providers[] del app.module.ts pero si tengo 10 servicios tendria 10 lineas, para
     SidebarService,
     UsuarioService,
     LoginGuardGuard,
+    DirectorGuard,
     SubirArchivoService,
     ModaluploadService,
     PersonaService,

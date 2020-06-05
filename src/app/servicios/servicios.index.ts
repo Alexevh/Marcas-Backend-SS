@@ -12,6 +12,7 @@ export { SubirArchivoService } from './archivos/subir-archivo.service';
 export { ModaluploadService } from '../componentes/modalupload/modalupload.service';
 export { PersonaService } from './persona/persona.service';
 export { TramiteService } from './tramite/tramite.service';
+export { DirectorGuard } from './guards/director.guard';
 
 
 

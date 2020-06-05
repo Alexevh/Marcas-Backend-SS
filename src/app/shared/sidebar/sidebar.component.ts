@@ -17,6 +17,10 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
 
     this.usuario = this.usrservice.usuario;
+
+    /* Hago aca la caega del menu ya que si lo pongo en el sidebar service me puede pasar que un admin se logee
+    luego salga y como el componente ya esta inicializado no refresque el menu */
+    this._sidebar.cargarMenu();
   }
 
 }

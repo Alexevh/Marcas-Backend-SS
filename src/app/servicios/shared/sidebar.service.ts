@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,37 +11,19 @@ import { Injectable } from '@angular/core';
 export class SidebarService {
 
 
+ /* el menu me lo enrega el backend segun el rol */
+ menu: any[];
 
-  /* el backend me va a dar el menu que voy a mostrar */
-  menu: any = [
-    {
-      titulo: 'Menu General',
-      icono:   'mdi mdi-gauge',
-      submenu: [
-        { titulo: 'Inicio', url: '/dashboard'},
-        { titulo: 'Alta Residencias', url: '/alta-resi'},
-        { titulo: 'Alta Renovacion', url: '/alta-ren'},
-        { titulo: 'Listado Tramites', url: '/tramites'},
-        { titulo: 'Personas', url: '/personas'},
-        { titulo: 'Alta Personas', url: '/alta-personas'},
-
-      ]
-    }, 
-    {
-      titulo: 'Menu Director',
-      icono:   'mdi mdi-gauge',
-      submenu: [
-     
-        { titulo: 'Firmar Resoluciones', url: '/alta-/firma-resoluciones'},
-        { titulo: 'Firmar Vouchers', url: '/firma-vouchers'},
-        { titulo: 'Estadisticas', url: '/graficas1'},
-        { titulo: 'Usuarios', url: '/usuarios'},
-       
-      ]
-    }
-  ];
+  constructor(public usuarioservice: UsuarioService) { 
 
 
+      //this.cargarMenu();
+  }
 
-  constructor() { }
+
+    /* La carga del menu la voy a llamar desde el componente y no desde el servicio debido a que si lo hago en el servicio y un usuario se
+    deslogea , el servicio ya esta inicializado y no va a refrescar el menu, de esta manera obligo siempre a recargar el menu */
+  cargarMenu(){
+    this.menu = this.usuarioservice.menu;
+  }
 }

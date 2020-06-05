@@ -10,13 +10,14 @@ export class ImagenPipe implements PipeTransform {
   transform(imagen: string, tipo:string='usuario'): any {
     
     let url = URL_SERVICIOS+'/documentos'
+    let token = localStorage.getItem('token');
 
     //console.log('me lleg de  imagen ', imagen);
     //console.log('me lleg de  tipo ', tipo);
 
     //si no viene una imagen tiro cualquier sarasa y el backend devuelve una foto por defecto
     if (!imagen){
-      url+='/usuarios/xxx'
+      url+='/usuarios/xxx'+'?token='+token;
       return url;
     }
 
@@ -28,18 +29,18 @@ export class ImagenPipe implements PipeTransform {
     switch(tipo){
 
       case 'usuario':
-         url+='/usuarios/'+imagen;
+         url+='/usuarios/'+imagen+'?token='+token;
       break;
 
       case 'persona':
-           url+='/personas/'+imagen;
+           url+='/personas/'+imagen+'?token='+token;
       break;
       case 'documentos':
-           url+='/tramites/'+imagen;
+           url+='/tramites/'+imagen+'?token='+token;
       break;
       default:
 
-           url+='/usuarios/xxx'
+           url+='/usuarios/xxx'+'?token='+token
 
       break;
     }

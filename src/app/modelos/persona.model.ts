@@ -14,7 +14,8 @@ export class Persona{
         public _id?: string,
         public huellas?: string,
         public foto?: string,
-        public email?: string
+        public email?: string,
+        public agendainicial?: string
 
     ){}
     

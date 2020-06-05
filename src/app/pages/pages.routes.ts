@@ -16,6 +16,8 @@ import { PersonasComponent } from './personas/personas.component';
 import { AltapersonasComponent } from './altapersonas/altapersonas.component';
 import { TramitesComponent } from './tramites/tramites.component';
 import { TramiteComponent } from './tramites/tramite.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
+import { DirectorGuard } from '../servicios/guards/director.guard';
 
 
 
@@ -39,9 +41,12 @@ const pagesRoutes: Routes = [
                     {path: 'personas', component: PersonasComponent, data: {titulo: 'Personas'}},
                     {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}},
                     {path: 'tramite/:id', component: TramiteComponent, data: {titulo: 'Actualizar Tramite'}},
+                    {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Busqueda general'}},
                     
-                    // Menu Director
-                    {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'Mantenimiento usuarios'}},
+                    /* Menu Director, aca cada pagina restringida al director deberia tener la propiedad canactivate 
+                    no lo hago por razones practicas en este momento
+                    */
+                    {path: 'usuarios', component: UsuariosComponent, canActivate: [DirectorGuard], data: {titulo: 'Mantenimiento usuarios'}},
                     {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
                     {path: 'alta-personas', component: AltapersonasComponent, data: {titulo: 'Nueva persona'}},
   ]
