@@ -18,6 +18,8 @@ import { APP_ROUTES } from './app.routes';
 /* Servicios  */
 
 import { ServicioModule } from './servicios/servicio.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenService } from './interceptores/token.service';
 
 
 
@@ -47,7 +49,15 @@ import { ServicioModule } from './servicios/servicio.module';
    
 
   ],
-  providers: [ ],
+  providers: [ 
+    {
+      /* esta es la config basica de un interceptor, podriamos tener mas de uno, este lo que hace es a cada peticion http le agrega
+      el token de usuario */
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

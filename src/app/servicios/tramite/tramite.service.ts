@@ -14,11 +14,10 @@ export class TramiteService {
   tramites: Tramite[] = [];
   tramiteActual: Tramite;
   token: string;
-  reqHeaders = new HttpHeaders({
-    'Content-Type': 'application/json',
-    'x-token': this.token,
-  });
 
+
+  /* En este servicio no aplico el token en las peticiones por que estoy usando un interceptor de app.module que hice y que
+  automaticamente le agrega el token a todas las peticiones HTTP*/
   constructor(public http: HttpClient, public usrsrv: UsuarioService) { 
 
     this.token = localStorage.getItem('token');
@@ -28,14 +27,8 @@ export class TramiteService {
   cargarTramites(desde: number){
   
     let url = URL_SERVICIOS + '/tramite?desde=' + desde;
-    //console.log('le paso la url ', url);
-    //console.log('el token es ', this.token)
-
-    var reqHeaders = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'x-token': this.token,
-    });
-    return this.http.get(url, { headers: reqHeaders });
+    
+    return this.http.get(url);
 
   }
 
@@ -54,22 +47,16 @@ export class TramiteService {
 
   buscarTramiteID(id: string){
     let url = URL_SERVICIOS + "/tramite/"+id;
-    var reqHeaders = new HttpHeaders({
-      "Content-Type": "application/json",
-      "x-token": this.token,
-    });
-    return this.http.get(url, { headers: reqHeaders });
+    
+    return this.http.get(url);
 
   }
 
   borrarDocumento(documento: Documento){
 
     let url = URL_SERVICIOS + "/documentos/tramites/"+documento._id;
-    var reqHeaders = new HttpHeaders({
-      "Content-Type": "application/json",
-      "x-token": this.token,
-    });
-    return this.http.delete(url, { headers: reqHeaders });
+  
+    return this.http.delete(url);
 
   }
 
@@ -83,11 +70,8 @@ export class TramiteService {
   actualizarTramite(tramite: Tramite){
 
     let url = URL_SERVICIOS + "/tramite/"+tramite._id;
-    var reqHeaders = new HttpHeaders({
-      "Content-Type": "application/json",
-      "x-token": this.token,
-    });
-    return this.http.put(url, tramite ,{ headers: reqHeaders });
+  
+    return this.http.put(url, tramite );
 
   }
 
