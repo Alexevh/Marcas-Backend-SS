@@ -15,6 +15,10 @@ export class ModaluploadComponent implements OnInit {
    //oculto: string = '';
    usuario: Usuario;
    imagenSubir: File;
+
+   /* la propiedad se agrega por que al compilar para prod no encuentra la propiedad */
+   sinImagen ="xxx";
+   
    imagenTemp: string  | ArrayBuffer;
   constructor(public uservice: UsuarioService, public cargaarchivo: SubirArchivoService, public modalservice: ModaluploadService) { }
 

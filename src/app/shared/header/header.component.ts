@@ -27,7 +27,12 @@ export class HeaderComponent implements OnInit {
 
   buscar(termino: string){
 
-    this.router.navigate(['/busqueda/'+termino]);
+   /* como si el termino es una agenda va a ser 1/2020 necesito reemplazar la barra por un - ya que el servicio rest no va a recibir la barra */ 
+   let t2 = termino.replace('/', '-');
+
+    console.log('el termino es', t2);
+
+    this.router.navigate(['/busqueda/'+t2]);
 
   }
 
