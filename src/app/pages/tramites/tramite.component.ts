@@ -22,6 +22,7 @@ export class TramiteComponent implements OnInit {
  tramite: Tramite = new Tramite('', '', new Date(), '', '', new Persona('','','',''),'','',[]);
  id: string = '';
  nombreDocumento = '';
+ token = '';
 
   constructor(public modalservice: ModaluploadService,
      public traSrv: TramiteService, public activated: ActivatedRoute, public router: Router, public personasrv: PersonaService) { 
@@ -48,6 +49,8 @@ export class TramiteComponent implements OnInit {
        this.cargarTramite(this.id);
       
     });
+
+    this.token = localStorage.getItem('token');
   }
 
 
@@ -97,7 +100,7 @@ export class TramiteComponent implements OnInit {
   /*  este metodo esta mal, tengo que fozrar uan descarga desde el servicio**/
   descargarDocumento(doc: Documento){
 
-    let url = URL_SERVICIOS+'/documentos/tramites/'+doc.fichero;
+    let url = URL_SERVICIOS+'/documentos/tramites/'+doc.fichero+'/?token='+this.token;
     console.log('voy a navegar a la url', url)
     window.open(url, '_blank');
 
