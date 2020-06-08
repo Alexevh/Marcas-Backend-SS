@@ -54,7 +54,7 @@ export class TramitesComponent implements OnInit {
     this.traSrv.cargarTramites(this.desde).subscribe((resp: any) => {
       
      
-      this.totalRegistros = resp.total;
+      this.totalRegistros = resp.total || 0;
       this.tramites = resp.tramites;
       
       this.cargando = false;

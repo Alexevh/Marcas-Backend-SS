@@ -21,14 +21,22 @@ export class TramiteService {
   constructor(public http: HttpClient, public usrsrv: UsuarioService) { 
 
     this.token = localStorage.getItem('token');
+    console.log('obtengo el token', this.token)
   }
 
 
   cargarTramites(desde: number){
   
     let url = URL_SERVICIOS + '/tramite?desde=' + desde;
+
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+   
+    console.log('me llega la url', url)
     
-    return this.http.get(url);
+    return this.http.get(url, {headers: reqHeaders});
 
   }
 
@@ -47,16 +55,26 @@ export class TramiteService {
 
   buscarTramiteID(id: string){
     let url = URL_SERVICIOS + "/tramite/"+id;
+
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
     
-    return this.http.get(url);
+    return this.http.get(url, {headers: reqHeaders});
 
   }
 
   borrarDocumento(documento: Documento){
 
     let url = URL_SERVICIOS + "/documentos/tramites/"+documento._id;
+
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
   
-    return this.http.delete(url);
+    return this.http.delete(url, {headers: reqHeaders});
 
   }
 
@@ -71,7 +89,12 @@ export class TramiteService {
 
     let url = URL_SERVICIOS + "/tramite/"+tramite._id;
   
-    return this.http.put(url, tramite );
+    var reqHeaders = new HttpHeaders({
+      "Content-Type": "application/json",
+      "x-token": this.token,
+    });
+
+    return this.http.put(url, tramite , {headers: reqHeaders} );
 
   }
 

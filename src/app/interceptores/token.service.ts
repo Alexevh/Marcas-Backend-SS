@@ -18,7 +18,7 @@ export class TokenService  implements HttpInterceptor{
 
   constructor() { 
 
-    this.token = localStorage.getItem('token');
+    this.token = localStorage.getItem('token') ;
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

@@ -28,6 +28,8 @@ import {  ReactiveFormsModule } from '@angular/forms';
 import { TramitesComponent } from './tramites/tramites.component';
 import { TramiteComponent } from './tramites/tramite.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { TokenService } from '../interceptores/token.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 /* Este modulo controla todas las paginas alojadas en pages */
@@ -68,6 +70,18 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         CommonModule,
         ReactiveFormsModule
       ],
+      providers: [
+        /*
+        
+        {
+            // esta es la config basica de un interceptor, podriamos tener mas de uno, este lo que hace es a cada peticion http le agrega
+            el token de usuario , lo comento por que me da un error en el login que tengo que ver como correjir
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenService,
+            multi: true
+          }
+        */
+      ]
 
 })
 
