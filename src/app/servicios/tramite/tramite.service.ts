@@ -27,7 +27,7 @@ export class TramiteService {
 
   cargarTramites(desde: number){
   
-    let url = URL_SERVICIOS + '/tramite?desde=' + desde;
+    let url = URL_SERVICIOS + '/tramites?desde=' + desde;
 
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
@@ -54,7 +54,7 @@ export class TramiteService {
   }
 
   buscarTramiteID(id: string){
-    let url = URL_SERVICIOS + "/tramite/"+id;
+    let url = URL_SERVICIOS + "/tramites/"+id;
 
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
@@ -87,7 +87,7 @@ export class TramiteService {
 
   actualizarTramite(tramite: Tramite){
 
-    let url = URL_SERVICIOS + "/tramite/"+tramite._id;
+    let url = URL_SERVICIOS + "/tramites/"+tramite._id;
   
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",

@@ -42,7 +42,7 @@ export class SubirArchivoService {
 
       let url =
         URL_SERVICIOS +
-        "/upload/" +
+        "/uploads/" +
         tipo +
         "/" +
         id +

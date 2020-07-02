@@ -13,10 +13,12 @@ import {
   PersonaService,
   TramiteService,
   DirectorGuard,
-  VerificatokenGuard
+  VerificatokenGuard,
+  WebsocketService,
   
 } from "./servicios.index";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 
 /* El objetivo de este modulo es compactar todos los servicios asi poder proveerlos con una sola linea, los servicios van en el
 providers[] del app.module.ts pero si tengo 10 servicios tendria 10 lineas, para poner solo una uso este modulo */
@@ -36,6 +38,7 @@ providers[] del app.module.ts pero si tengo 10 servicios tendria 10 lineas, para
     ModaluploadService,
     PersonaService,
     TramiteService,
+    WebsocketService
     
   ],
 })

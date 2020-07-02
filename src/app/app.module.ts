@@ -20,13 +20,11 @@ import { APP_ROUTES } from './app.routes';
 import { ServicioModule } from './servicios/servicio.module';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+//sockets
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { URL_SERVICIOS } from './config/config';
 
-
-
-
-
-
-
+const config: SocketIoConfig = { url: URL_SERVICIOS, options: {} };
 
 
 @NgModule({
@@ -44,7 +42,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     PagesModule,
     FormsModule,
     ReactiveFormsModule,
-    ServicioModule
+    ServicioModule,
+    SocketIoModule.forRoot(config)
     
    
 
