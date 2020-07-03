@@ -7,6 +7,7 @@ import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { HttpHeaders } from "@angular/common/http";
 import { SubirArchivoService } from "../archivos/subir-archivo.service";
+import { WebsocketService } from '../websocket/websocket.service';
 
 @Injectable({
   providedIn: "root",
@@ -19,7 +20,8 @@ export class UsuarioService {
   constructor(
     public http: HttpClient,
     public router: Router,
-    public subir: SubirArchivoService
+    public subir: SubirArchivoService,
+    public wsService: WebsocketService
   ) {
     this.cargarStorage();
   }
@@ -94,14 +96,17 @@ export class UsuarioService {
   }
 
   logout() {
+    this.wsService.emit('mensaje', `el usuario ${this.usuario.nombre} ha abandonado el sistema`);
     this.usuario = null;
     this.token = null;
     this.menu=[];
+   
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     localStorage.removeItem("menu");
 
     this.router.navigate(["/login"]);
+ 
   }
 
   actualizarUsuario(usuario: Usuario) {

@@ -1,0 +1,17 @@
+
+      .chat {
+       position: fixed;
+        bottom: 20px;
+        right: 0px;
+        width: 30%;
+        height: 300px;
+        overflow-y: scroll;
+    }
+
+    #chat-mensajes {
+        height: 200px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        overflow-y: scroll;
+    }
+    

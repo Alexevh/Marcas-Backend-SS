@@ -34,4 +34,19 @@ export class WebsocketService {
     });
 
    }
+
+  /* Metodo para enviar por socket als erver */
+   public emit(evento: string, payload?: any, callback?: Function){
+
+    this.socket.emit(evento, payload, callback);
+
+   }
+
+   /* metodo para escuchar cualquier evento, esta funcion regresa un observavle a dond eme puedo suscribir desde
+   cualquier parte de la aplicaicon para escuchar lo que necesito */
+   public listen(evento: string){
+
+    return this.socket.fromEvent(evento);
+
+   }
 }

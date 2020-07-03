@@ -111,8 +111,8 @@
                 <li class="nav-item ">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" aria-haspopup="true" aria-expanded="false">
 
-                        <i class="mdi mdi-server" style="color: green;" *ngIf="wsocket.soscketStatus"></i> 
-                         <i class="mdi mdi-server" style="color: red;" *ngIf="!wsocket.soscketStatus"></i> 
+                        <i data-toggle="tooltip" title="Conexion con el servidor OK" class="mdi mdi-server" style="color: green;" *ngIf="wsocket.soscketStatus"></i> 
+                         <i data-toggle="tooltip" title="Conexion con el servidor fallida" class="mdi mdi-server" style="color: red;" *ngIf="!wsocket.soscketStatus"></i> 
                       
                         </a>
                 </li>

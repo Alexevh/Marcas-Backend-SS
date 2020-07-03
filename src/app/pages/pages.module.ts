@@ -32,6 +32,7 @@ import { TokenService } from '../interceptores/token.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
+
 /* Este modulo controla todas las paginas alojadas en pages */
 @NgModule({
 
@@ -50,7 +51,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         AltapersonasComponent,
         TramitesComponent,
         TramiteComponent,
-        BusquedaComponent
+        BusquedaComponent,
+        
        
        
     ],

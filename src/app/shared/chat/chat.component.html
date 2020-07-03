@@ -1,0 +1,25 @@
+<div class="chat">
+
+
+    <div id="chat-mensajes">
+        <li class="list-group-item" *ngFor="let mensaje of mensajes">
+           {{ mensaje.de}}: {{mensaje.msg}}
+            
+        </li>
+    
+    </div>
+    <form (ngSubmit)="enviar()">
+
+        <div class="card-body b-t">
+            <div class="row">
+                <div>
+                    <input type="text" name="texto" [(ngModel)]="texto" placeholder="Escriba su mensaje" class="form-control b-0" autocomplete="off"/>
+                </div>
+               
+            </div>
+        </div>
+    
+
+    </form>
+
+</div>
