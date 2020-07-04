@@ -44,6 +44,54 @@
                         <input #input (keyup.enter)="buscar(input.value)" type="text" class="form-control" placeholder="Buscar...."> <a class="srh-btn"><i class="ti-close"></i></a> </div>
                 </li>
                 <!-- ============================================================== -->
+
+                     <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                                <div class="notify" *ngIf="mensajes_sinleer"> <span class="heartbit" ></span> <span class="point"></span> </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" (click)="mensajes_sinleer=false">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Mensajes</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+                                            <!-- Message -->
+                                            <a href="#" *ngFor="let mensaje of mensajes">
+                                                
+                                                <div class="mail-contnet">
+                                                    <h5>{{mensaje.de}}</h5> <span class="mail-desc">{{mensaje.msg}}</span> </div>
+                                            </a>
+
+                                         
+                                           
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="javascript:void(0);" (click)="mensajes = []"> <strong>Borrar todo </strong> <i class="fa fa-trash"></i> </a>
+                                    </li>
+                                </ul>
+                                <form (ngSubmit)="enviar()">
+
+                                    <div class="card-body b-t">
+                                        <div class="row">
+                                            <div>
+                                                <input type="text" name="texto" [(ngModel)]="texto" placeholder="Escriba su mensaje" class="form-control b-0" autocomplete="off"/>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                
+                            
+                                </form>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
               
                 <!-- ============================================================== -->
                 <!-- Messages -->
