@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card m-b-0">
+            <!-- .chat-row -->
+            <div class="chat-main-box">
+                <!-- .chat-left-panel -->
+                <div class="chat-left-aside">
+                    <div class="open-panel"><i class="ti-angle-right"></i></div>
+                    <div class="chat-left-inner" style="height: 321px;">
+                        <div class="form-material">
+                            <input class="form-control p-20" type="text" placeholder="Buscar contacto">
+                        </div>
+                        <ul class="chatonline style-none ps ps--theme_default" data-ps-id="8c1f109f-2938-d33c-9501-c15c5dd8bc51">
+                            <li *ngFor="let usr of listaConectados">
+                                <a href="javascript:void(0)"><img  [src]="usr.foto | imagen" class="img-circle"> <span>{{usr.nombre}}<small class="text-success">online</small></span></a>
+                            </li>
+                     
+                            <li class="p-20"></li>
+                        <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></ul>
+                    </div>
+                </div>
+                <!-- .chat-left-panel -->
+                <!-- .chat-right-panel -->
+                <div class="chat-right-aside">
+                    <div class="chat-main-header">
+                        <div class="p-20 b-b">
+                            <h3 class="box-title">Mensajes de chat</h3>
+                        </div>
+                    </div>
+                    <div id="chat-mensajes" class="chat-rbox ps ps--theme_default ps--active-y " data-ps-id="4fab543c-f1c2-1501-0441-70c2156b7e43">
+                        <ul class="chat-list p-20 "style="height: 141px;" >
+                            <!--chat Row -->
+                            <li *ngFor="let msg of mensajes" [ngClass]="{'reverse' : msg.de != usuario.nombre}" >
+                                <div class="chat-img" *ngIf="msg.de === usuario.nombre"><img [src]="msg.foto | imagen"  alt="user"></div>
+                                <div class="chat-content">
+                                    <h5>{{msg.de}}</h5>
+                                    <div class="box bg-light-info"  *ngIf="msg.de === usuario.nombre">{{msg.msg}}</div>
+                                    <div class="box bg-light-inverse"  *ngIf="msg.de != usuario.nombre">{{msg.msg}}</div>
+                                </div>
+                                <div class="chat-img" *ngIf="msg.de != usuario.nombre"><img [src]="msg.foto | imagen"  alt="user"></div>
+                                <div class="chat-time">{{msg.fecha |  date :'short'}} </div>
+                            </li>
+
+                            
+                        </ul>
+                    <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: -240px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 240px; right: 0px; height: 141px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 57px; height: 33px;"></div></div></div>
+                    <div class="card-body b-t">
+                        <form (ngSubmit)="enviar()">
+
+                            <div class="card-body b-t">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="text" name="texto" [(ngModel)]="texto" placeholder="Escriba su mensaje" class="form-control" autocomplete="off"/>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        
+                    
+                        </form>
+                     
+                </div>
+                
+                <!-- .chat-right-panel -->
+            </div>
+            <!-- /.chat-row -->
+        </div>
+    </div>
+</div>

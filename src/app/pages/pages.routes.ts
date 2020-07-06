@@ -19,6 +19,7 @@ import { TramiteComponent } from './tramites/tramite.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { DirectorGuard } from '../servicios/guards/director.guard';
 import { VerificatokenGuard } from '../servicios/guards/verificatoken.guard';
+import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
 
 
 
@@ -46,6 +47,7 @@ const pagesRoutes: Routes = [
                     {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}, canActivate: [VerificatokenGuard]},
                     {path: 'tramite/:id', component: TramiteComponent, data: {titulo: 'Actualizar Tramite'}},
                     {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Busqueda general'}},
+                    {path: 'chat', component: ChatSistemaComponent, data: {titulo: 'Chat'}},
                     
                     /* Menu Director, aca cada pagina restringida al director deberia tener la propiedad canactivate 
                     no lo hago por razones practicas en este momento

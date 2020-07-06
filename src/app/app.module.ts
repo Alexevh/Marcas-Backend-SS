@@ -24,6 +24,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { URL_SERVICIOS } from './config/config';
 
+
 const config: SocketIoConfig = { url: URL_SERVICIOS, options: {} };
 
 
@@ -32,6 +33,7 @@ const config: SocketIoConfig = { url: URL_SERVICIOS, options: {} };
     AppComponent,
     LoginComponent,
     RegistroComponent,
+    
    
    
     //IncrementadorComponent

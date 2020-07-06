@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     /* obtengo la ereferencia a la caja de chat ya que voy a hacer un scroll automatico */
-    this.elemento = document.getElementById('chat-mensajes');
+    this.elemento = document.getElementById('chat-mensajesH');
 
     /* me suscribo al observable que va a tener los mensajes nuevos */
     this.mensajesSuscripcion =this.chat.escucharMensajes().subscribe((msg:any) => {

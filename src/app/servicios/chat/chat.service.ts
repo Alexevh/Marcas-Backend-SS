@@ -14,6 +14,8 @@ export class ChatService {
  /* genero el payload a enviar al server */
   const payload = {
     de: this.usrservice.usuario.nombre,
+    foto: this.usrservice.usuario.foto,
+    fecha: new Date().getTime(),
     msg: mensaje
   };
 
@@ -31,6 +33,15 @@ export class ChatService {
   /* me suscribo a los mensajes nuevos, un obserbavle no va a escuchar nada hasta susvribirse, pero yo no me quiero suscribir aqui
   lo voy a hacer en el chat component, por eso hago un return */
   return this.wsservice.listen('mensaje-nuevo');
+    
+}
+
+ /* Estoy pensiente de los mensajes que lleguen de inresos de*/
+ escucharUsuarios(){
+
+  /* me suscribo a los mensajes nuevos, un obserbavle no va a escuchar nada hasta susvribirse, pero yo no me quiero suscribir aqui
+  lo voy a hacer en el chat component, por eso hago un return */
+  return this.wsservice.listen('ingreso-usuario');
     
 }
 

@@ -22,6 +22,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModaluploadComponent } from '../componentes/modalupload/modalupload.component';
 import { PersonasComponent } from './personas/personas.component';
 import { AltapersonasComponent } from './altapersonas/altapersonas.component';
+
 4
 /* acrive forms, necesario para trabajar con formularios NG */
 import {  ReactiveFormsModule } from '@angular/forms';
@@ -30,6 +31,8 @@ import { TramiteComponent } from './tramites/tramite.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { TokenService } from '../interceptores/token.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ListaUsuariosComponent } from '../componentes/lista-usuarios/lista-usuarios.component';
+import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
 
 
 
@@ -52,6 +55,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         TramitesComponent,
         TramiteComponent,
         BusquedaComponent,
+        ListaUsuariosComponent,
+        ChatSistemaComponent,
         
        
        
@@ -61,6 +66,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
         ProgressComponent,
         Graficas1Component,
         PagesComponent,
+        ListaUsuariosComponent
         
     ],
     imports: [

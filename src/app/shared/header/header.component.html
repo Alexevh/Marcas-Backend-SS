@@ -48,17 +48,17 @@
                      <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown" >
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
                                 <div class="notify" *ngIf="mensajes_sinleer"> <span class="heartbit" ></span> <span class="point"></span> </div>
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" (click)="mensajes_sinleer=false">
-                                <ul>
+                            <div  class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" (click)="mensajes_sinleer=false">
+                                <ul id='chat-mensajesH' >
                                     <li>
                                         <div class="drop-title">Mensajes</div>
                                     </li>
                                     <li>
-                                        <div class="message-center">
+                                        <div class="message-center " id='chat-mensajesH'  >
                                             <!-- Message -->
                                             <a href="#" *ngFor="let mensaje of mensajes">
                                                 

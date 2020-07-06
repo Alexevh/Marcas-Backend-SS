@@ -36,6 +36,9 @@ export class ChatComponent implements OnInit, OnDestroy {
       }, 50);
 
     });
+
+
+    
   }
 
   /* cuando salga del chat destruyo la suscripcion */
