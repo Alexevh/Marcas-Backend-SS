@@ -63,7 +63,11 @@
                                             <a href="#" *ngFor="let mensaje of mensajes">
                                                 
                                                 <div class="mail-contnet">
-                                                    <h5>{{mensaje.de}}</h5> <span class="mail-desc">{{mensaje.msg}}</span> </div>
+                                                    <h5>{{mensaje.de}}</h5> <span class="mail-desc">{{mensaje.msg}}</span>
+                                                    <span class="time">{{mensaje.fecha |  date :'short'}} </span> 
+                                                </div>
+                                                   
+                                                
                                             </a>
 
                                          
@@ -74,7 +78,10 @@
                                         <a class="nav-link text-center" href="javascript:void(0);" (click)="mensajes = []"> <strong>Borrar todo </strong> <i class="fa fa-trash"></i> </a>
                                     </li>
                                 </ul>
-                                <form (ngSubmit)="enviar()">
+
+                                <!-- Voy a comentar esto ya que esta parte va a ser la de mensajes privados 
+                                
+                                     <form (ngSubmit)="enviar()">
 
                                     <div class="card-body b-t">
                                         <div class="row">
@@ -87,6 +94,9 @@
                                 
                             
                                 </form>
+                                
+                                -->
+                           
                             </div>
                         </li>
                         <!-- ============================================================== -->

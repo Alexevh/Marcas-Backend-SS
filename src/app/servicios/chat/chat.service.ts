@@ -36,6 +36,11 @@ export class ChatService {
     
 }
 
+/* escucho los mensajes privados */
+escucharPrivados(){
+  return this.wsservice.listen('mensaje-privado');
+}
+
  /* Estoy pensiente de los mensajes que lleguen de inresos de*/
  escucharUsuarios(){
 

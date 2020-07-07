@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { UsuarioService } from '../servicios/servicios.index';
 import { Usuario } from '../modelos/usuario.model';
 import Swal from "sweetalert2";
+import { WebsocketService } from '../servicios/websocket/websocket.service';
 
 /* la funcion init_plugins se encuentra en el custom.js y lo que hace es inicializar los plugins del template que estoy usando
 Estoy ejecutando esta funcion dos veces, una en login.componet y otra en pages.component de manera de asegurarme que siempre va a cargar
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   recuerdame = false;
   uid = '';
 
-  constructor(public router: Router, public usrService: UsuarioService) { 
+  constructor(public router: Router, public usrService: UsuarioService, public wss: WebsocketService) { 
 
     init_plugins();
   }
@@ -47,6 +48,12 @@ export class LoginComponent implements OnInit {
     this.usrService.login(usuario, formulario.value.recuerdame).subscribe( (resp:any) => {
 
       console.log(resp);
+      this.wss.loginWS(
+        this.usrService.usuario.nombre,
+        this.usrService.usuario.foto,
+        this.usrService.usuario.mision
+      );
+      
       this.router.navigate(['/dashboard']);
 
     },  (err:any)=>{
