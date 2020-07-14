@@ -33,6 +33,7 @@ import { TokenService } from '../interceptores/token.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListaUsuariosComponent } from '../componentes/lista-usuarios/lista-usuarios.component';
 import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
+import { GraficoLineaComponent } from '../componentes/grafico-linea/grafico-linea.component';
 
 
 
@@ -46,6 +47,7 @@ import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
         PagesComponent,
         IncrementadorComponent,
         GraficoDonaComponent,
+        GraficoLineaComponent,
         AjustesPersonalesComponent,
         PerfilComponent,
         UsuariosComponent,
@@ -65,6 +67,7 @@ import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
+        GraficoLineaComponent,
         PagesComponent,
         ListaUsuariosComponent
         
