@@ -108,46 +108,27 @@
                 <!-- ============================================================== -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-email"></i>
-                        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                        <div class="notify" *ngIf="mensajesError_sinleer"> <span class="heartbit"></span> <span class="point"></span> </div>
                     </a>
-                    <div class="dropdown-menu mailbox dropdown-menu-right animated fadeIn" aria-labelledby="2">
+                    <div class="dropdown-menu mailbox dropdown-menu-right animated fadeIn" aria-labelledby="2" (click)="mensajesError_sinleer=false">
                         <ul>
                             <li>
-                                <div class="drop-title">Tenes 4 notificaciones</div>
+                                <div class="drop-title">Tenes {{ erroresSistema.length}} notificaciones</div>
                             </li>
                             <li>
                                 <div class="message-center">
                                     <!-- Message -->
-                                    <a href="#">
+                                    <a href="#" *ngFor="let msg of erroresSistema, let i = index">
                                         
                                         <div class="mail-contnet">
-                                            <i class="fa fa-info"></i>
-                                            <h5>Vouchers</h5> <span class="mail-desc">Se firmaron 300 vouchers</span> <span class="time">9:30 AM</span> </div>
+                                            <i class="{{msg[i].icono}}"></i>
+                                            <h5>{{msg[i].titulo}}</h5> <span class="mail-desc">{{msg[i].contenido}}</span> <span class="time">{{msg[i].fecha |  date :'short'}}</span> </div>
                                     </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                      
-                                        <div class="mail-contnet">
-                                            
-                                            <i class="fa fa-warning" style="color:yellow"></i>
-                                            <span class="mail-desc">Error al ennviar mail del tramite 15/2020</span> <span class="time">9:10 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                     
-                                        <div class="mail-contnet">
-                                            <i class="fa fa-info"></i><span class="mail-desc">Hay mas de 100 resoluciones pendientes de firma</span> <span class="time">9:08 AM</span> </div>
-                                    </a>
-                                    <!-- Message -->
-                                    <a href="#">
-                                       
-                                        <div class="mail-contnet">
-                                            <i class="fa fa-ambulance" style="color:red"></i><span class="mail-desc">El sistema de DNIC esta offline</span> <span class="time">9:02 AM</span> </div>
-                                    </a>
+                                 
                                 </div>
                             </li>
                             <li>
-                                <a class="nav-link text-center" href="javascript:void(0);"> <strong>Borrar todo</strong> <i class="fa fa-angle-right"></i> </a>
+                                <a class="nav-link text-center" href="javascript:void(0);" (click)="borarMensajesSistema()" > <strong>Borrar todo</strong> <i class="fa fa-angle-right"></i> </a>
                             </li>
                         </ul>
                     </div>

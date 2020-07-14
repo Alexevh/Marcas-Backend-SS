@@ -5,6 +5,11 @@ import { UsuarioService } from "../../servicios/usuario/usuario.service";
 import { UsuarioChat } from "../../modelos/usuarioChat";
 import { Subscription } from "rxjs";
 import { ChatService } from '../../servicios/chat/chat.service';
+/* la funcion init_plugins se encuentra en el custom.js y lo que hace es inicializar los plugins del template que estoy usando
+Estoy ejecutando esta funcion dos veces, una en login.componet y otra en pages.component de manera de asegurarme que siempre va a cargar
+los plugins del template
+ */
+declare function init_plugins();
 
 @Component({
   selector: "app-chat-sistema",
@@ -30,12 +35,14 @@ export class ChatSistemaComponent implements OnInit {
       this.usuario.foto,
       this.usuario.mision
     );
+    this.mensajes = this.chat.mensajes;
     /* obtengo la ereferencia a la caja de chat ya que voy a hacer un scroll automatico */
     this.elemento = document.getElementById('chat-mensajes');
 
     /* me suscribo al observable que va a tener los mensajes nuevos */
-    this.mensajesSuscripcion = this.chat.escucharMensajes().subscribe((msg) => {
-      this.mensajes.push(msg);
+    this.mensajesSuscripcion = this.chat.nuevoMensaje.subscribe((msg) => {
+
+      this.mensajes = this.chat.mensajes;
 
       /* le pongo un timeout minimo al scroll por que necesito que espere a que este el mensaje rendrizado */
       setTimeout(() => {
@@ -50,12 +57,13 @@ export class ChatSistemaComponent implements OnInit {
         this.listaConectados.push(usr);
       
     });
+    init_plugins();
   }
 
 
     /* cuando salga del chat destruyo la suscripcion */
     ngOnDestroy(){
-      this.mensajesSuscripcion.unsubscribe();
+     // this.mensajesSuscripcion.unsubscribe();
     }
   
     enviar(){

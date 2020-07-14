@@ -1,13 +1,34 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { WebsocketService } from '../websocket/websocket.service';
 import { UsuarioService } from '../usuario/usuario.service';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
 
-  constructor(public wsservice: WebsocketService, public usrservice: UsuarioService) { }
+  /* cuando haya un nuevo mensaje se lo paso a los usuarios que escuchan */
+  @Output() nuevoMensaje: EventEmitter<boolean> = new EventEmitter();
+
+  public mensajesSuscripcion: Subscription;
+  public mensajes: any[] = [];
+
+  constructor(public wsservice: WebsocketService, public usrservice: UsuarioService) {
+
+      /* me suscribo al observable que va a tener los mensajes nuevos */
+      this.mensajesSuscripcion = this.escucharMensajes().subscribe((msg) => {
+        this.mensajes.push(msg);
+        this.nuevoMensaje.emit(true);
+  
+        /* le pongo un timeout minimo al scroll por que necesito que espere a que este el mensaje rendrizado */
+        setTimeout(() => {
+          //*this.elemento.scrollTop = this.elemento.scrollHeight;
+        }, 50);
+      });
+
+
+   }
 
  enviarMensaje(mensaje: string){
 
@@ -48,6 +69,11 @@ escucharPrivados(){
   lo voy a hacer en el chat component, por eso hago un return */
   return this.wsservice.listen('ingreso-usuario');
     
+}
+
+/* escucho los mensajes del sistema */
+escucharMensajesSistema(){
+  return this.wsservice.listen('ingreso-mensajes-sistema');
 }
 
 }

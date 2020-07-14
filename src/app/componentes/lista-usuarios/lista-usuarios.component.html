@@ -1,1 +1,4 @@
-<p>lista-usuarios works!</p>
+<h1> Usuarios</h1>
+<li *ngFor="let usr of listaConectados">
+    <a href="javascript:void(0)"><img  [src]="usr.foto | imagen" class="img-circle"> <span>{{usr.nombre}}<small class="text-success">online</small></span></a>
+</li>

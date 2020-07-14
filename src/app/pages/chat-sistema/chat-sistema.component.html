@@ -1,4 +1,5 @@
 <div class="row">
+    
     <div class="col-12">
         <div class="card m-b-0">
             <!-- .chat-row -->
@@ -11,10 +12,8 @@
                             <input class="form-control p-20" type="text" placeholder="Buscar contacto">
                         </div>
                         <ul class="chatonline style-none ps ps--theme_default" data-ps-id="8c1f109f-2938-d33c-9501-c15c5dd8bc51">
-                            <li *ngFor="let usr of listaConectados">
-                                <a href="javascript:void(0)"><img  [src]="usr.foto | imagen" class="img-circle"> <span>{{usr.nombre}}<small class="text-success">online</small></span></a>
-                            </li>
-                     
+                           
+                            <app-lista-usuarios></app-lista-usuarios>
                             <li class="p-20"></li>
                         <div class="ps__scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps__scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__scrollbar-y-rail" style="top: 0px; right: 0px;"><div class="ps__scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></ul>
                     </div>

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter, Output } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { UsuarioService } from '../usuario/usuario.service';
 import { Usuario } from 'src/app/modelos/usuario.model';
@@ -9,6 +9,9 @@ import { Usuario } from 'src/app/modelos/usuario.model';
 export class WebsocketService {
 
   public soscketStatus = false;
+
+  /* cuando el server se reconecte voy a emitir eso, voy a avisar a quienes lo nevcesitem que hay reconexion */
+  @Output() reconexion: EventEmitter<boolean> = new EventEmitter();
   
 
   constructor(private socket: Socket) {
@@ -27,6 +30,7 @@ export class WebsocketService {
 
       console.log('Conectado al servidor');
       this.soscketStatus = true;
+      this.reconexion.emit(true);
 
     });
 
@@ -65,6 +69,16 @@ public loginWS(nombre: string, foto: string, mision: string){
   console.log(resp);
 
   });
+}
+
+/* Log out del ws */
+public logoutWS(){
+  console.log('Sal;iendo a...');
+  this.socket.emit('configurar-usuario', {}, (resp)=> {
+  console.log(resp);
+
+  });
+
 }
 
 }

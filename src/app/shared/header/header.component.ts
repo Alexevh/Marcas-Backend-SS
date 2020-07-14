@@ -16,11 +16,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
   usuario: Usuario;
 
   mensajes: any[] = [];
+  erroresSistema: any[] =[];
+
   texto = "";
   mensajesSuscripcion: Subscription;
   mensajesPrivadosSuscripcion: Subscription;
+  mensajesErroresSuscripcion: Subscription;
   elemento: HTMLElement;
   mensajes_sinleer = false;
+  mensajesError_sinleer = false;
+
+
 
   constructor(public usuariosrv: UsuarioService, public router: Router, public wsocket: WebsocketService, public chat: ChatService) {
 
@@ -55,6 +61,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     });
 
+    /* escucho los mensajes de error del backend */
+    this.mensajesErroresSuscripcion = this.chat.escucharMensajesSistema().subscribe((msg:any)=>{
+      this.mensajesError_sinleer = true;
+      //console.log('la lista de errores es', msg[0].titulo);
+      this.erroresSistema.push(msg);
+      this.mensajesError_sinleer = true;
+    });
+
 
   }
 
@@ -81,6 +95,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
     this.texto = '';
+  }
+
+  borarMensajesSistema(){
+    this.erroresSistema = [];
   }
 
 

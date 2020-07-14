@@ -39,6 +39,15 @@ export class UsuarioService {
       map((resp: any) => {
         this.guardarStorage(resp.token, resp.usuario, resp.menu);
 
+        /* voy a suscribirme a los cambios de conexion */
+        this.wsService.reconexion.subscribe((data)=> {
+          
+          console.log('El server se reconecto, me vouelvo a registrar');
+          /* voy a escoger registrarme aca en el websocketservice pero podria hacerlo en otra parte */
+          this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.mision);
+
+        });
+
         return true;
       })
     );
@@ -53,6 +62,11 @@ export class UsuarioService {
     this.usuario = usuario;
     this.token = token;
     this.menu = menu;
+
+    /* voy a escoger registrarme aca en el websocketservice pero podria hacerlo en otra parte */
+    this.cargarStorage();
+    this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.mision);
+
   }
 
   cargarStorage() {
@@ -97,6 +111,7 @@ export class UsuarioService {
 
   logout() {
     this.wsService.emit('mensaje', `el usuario ${this.usuario.nombre} ha abandonado el sistema`);
+    this.wsService.emit('dissconect', `el usuario ${this.usuario.nombre} ha abandonado el sistema`);
     this.usuario = null;
     this.token = null;
     this.menu=[];
@@ -104,6 +119,7 @@ export class UsuarioService {
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     localStorage.removeItem("menu");
+    this.wsService.logoutWS();
 
     this.router.navigate(["/login"]);
  
@@ -151,7 +167,7 @@ export class UsuarioService {
   }
 
   cargarUsuarios(desde) {
-    let url = URL_SERVICIOS + "/usuario?desde=" + desde;
+    let url = URL_SERVICIOS + "/usuarios?desde=" + desde;
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
       "x-token": this.token,

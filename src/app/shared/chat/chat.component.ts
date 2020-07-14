@@ -23,9 +23,12 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.elemento = document.getElementById('chat-mensajes');
 
     /* me suscribo al observable que va a tener los mensajes nuevos */
-    this.mensajesSuscripcion =this.chat.escucharMensajes().subscribe(msg => {
+    this.mensajesSuscripcion =this.chat.escucharMensajes().subscribe((msg:any) => {
 
-      this.mensajes.push(msg);
+      if (msg.de !==''){
+        this.mensajes.push(msg);
+      }
+      
 
       /* le pongo un timeout minimo al scroll por que necesito que espere a que este el mensaje rendrizado */
       setTimeout( ()=> {
