@@ -34,6 +34,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListaUsuariosComponent } from '../componentes/lista-usuarios/lista-usuarios.component';
 import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
 import { GraficoLineaComponent } from '../componentes/grafico-linea/grafico-linea.component';
+import { MapaComponent } from '../componentes/mapa/mapa.component';
+import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
+
 
 
 
@@ -59,6 +62,9 @@ import { GraficoLineaComponent } from '../componentes/grafico-linea/grafico-line
         BusquedaComponent,
         ListaUsuariosComponent,
         ChatSistemaComponent,
+        MapaComponent,
+        MapaconsularComponent,
+        
         
        
        
@@ -69,7 +75,8 @@ import { GraficoLineaComponent } from '../componentes/grafico-linea/grafico-line
         Graficas1Component,
         GraficoLineaComponent,
         PagesComponent,
-        ListaUsuariosComponent
+        ListaUsuariosComponent,
+        MapaComponent
         
     ],
     imports: [
