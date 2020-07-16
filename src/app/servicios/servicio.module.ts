@@ -15,10 +15,12 @@ import {
   DirectorGuard,
   VerificatokenGuard,
   WebsocketService,
-  ChatService
+  ChatService, 
+  MapasService
   
 } from "./servicios.index";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
+
 
 
 
@@ -41,7 +43,8 @@ providers[] del app.module.ts pero si tengo 10 servicios tendria 10 lineas, para
     PersonaService,
     TramiteService,
     WebsocketService,
-    ChatService
+    ChatService,
+    MapasService
     
   ],
 })

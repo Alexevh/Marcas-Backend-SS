@@ -6,4 +6,5 @@ export interface Lugar {
     lng: number;
     lat: number;
     color: string;
+    foto?: string;
 }
