@@ -27,6 +27,7 @@ import { URL_SERVICIOS } from './config/config';
 
 
 
+
 const config: SocketIoConfig = { url: URL_SERVICIOS, options: {} };
 
 
@@ -35,6 +36,7 @@ const config: SocketIoConfig = { url: URL_SERVICIOS, options: {} };
     AppComponent,
     LoginComponent,
     RegistroComponent,
+    
 
     
     

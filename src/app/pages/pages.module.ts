@@ -37,6 +37,9 @@ import { GraficoLineaComponent } from '../componentes/grafico-linea/grafico-line
 import { MapaComponent } from '../componentes/mapa/mapa.component';
 import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
 
+import { GmapaconsularComponent } from './gmapaconsular/gmapaconsular.component';
+import { GmapComponent } from '../componentes/gmap/gmap.component';
+
 
 
 
@@ -63,7 +66,9 @@ import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
         ListaUsuariosComponent,
         ChatSistemaComponent,
         MapaComponent,
+        GmapComponent,
         MapaconsularComponent,
+        GmapaconsularComponent,
         
         
        
@@ -76,7 +81,8 @@ import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
         GraficoLineaComponent,
         PagesComponent,
         ListaUsuariosComponent,
-        MapaComponent
+        MapaComponent,
+        GmapComponent
         
     ],
     imports: [

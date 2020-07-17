@@ -21,6 +21,7 @@ import { DirectorGuard } from '../servicios/guards/director.guard';
 import { VerificatokenGuard } from '../servicios/guards/verificatoken.guard';
 import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
 import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
+import { GmapaconsularComponent } from './gmapaconsular/gmapaconsular.component';
 
 
 
@@ -50,6 +51,7 @@ const pagesRoutes: Routes = [
                     {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Busqueda general'}},
                     {path: 'chat', component: ChatSistemaComponent, data: {titulo: 'Chat'}},
                     {path: 'mapa', component: MapaconsularComponent, data: {titulo: 'Mapa consular'}},
+                    {path: 'gmapa', component: GmapaconsularComponent, data: {titulo: 'G Mapa consular'}},
                     
                     /* Menu Director, aca cada pagina restringida al director deberia tener la propiedad canactivate 
                     no lo hago por razones practicas en este momento
