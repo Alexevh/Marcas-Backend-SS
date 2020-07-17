@@ -28,7 +28,7 @@ export class MapaComponent implements OnInit {
 
   /* marcadores en el mapa, los guardo como objetos aca para poder referenciarlos luego para borarlos ya que mapbox
   no tiene una forma facil de rerefenciarlos en el canvas */
-  marcadores: {[id: string]: mapboxgl.Marker} ={};
+  marcadores: { [id: string]: mapboxgl.Marker } = {};
 
 
   constructor(private mapaservice: MapasService, private usrservicio: UsuarioService, private wsservice: WebsocketService) { }
@@ -109,14 +109,27 @@ export class MapaComponent implements OnInit {
     /* cuando el usuario haga drag del marcador voy a ejecutar este metodo */
     posicion.on('drag', () => {
 
+      /* obtengo las nuevas coordenadas */
       const lnglat = posicion.getLngLat();
+      console.log('emito el evento mover');
+      
+      const nuevoLugar = {
+        id: marcador.id,
+        // desestructuro lat y long
+        ...lnglat
+      }
+
+      this.wsservice.emit('mover-marcador', nuevoLugar);
+
+
+
 
     });
 
     /* al boton que le puse al marcador le agrego un listener y ejecuto una funcion */
     boton.addEventListener('click', () => {
       posicion.remove();
-       // emitir el marcador
+      // emitir el marcador
       this.wsservice.emit('eliminar-marcador', marcador.id);
     });
 
@@ -162,24 +175,28 @@ export class MapaComponent implements OnInit {
   escucharSokets() {
     // marcador nuevo
 
-    this.wsservice.listen('nuevo-marcador').subscribe((marcador: Lugar)=>{
-  this.agregarMarcador(marcador);
+    this.wsservice.listen('nuevo-marcador').subscribe((marcador: Lugar) => {
+      this.agregarMarcador(marcador);
     });
 
     // marcador se mueve
+    this.wsservice.listen('mover-marcador').subscribe((marcador: Lugar) => {
+      // console.log('me llega el evento mover')
+      this.marcadores[marcador.id].setLngLat([marcador.lng, marcador.lat]);
+    });
 
     // marcador borrar
-    this.wsservice.listen('eliminar-marcador').subscribe((marcador: string)=>{
+    this.wsservice.listen('eliminar-marcador').subscribe((marcador: string) => {
 
-       console.log('me llega un mensaje de borrar el marcador ', marcador);
-       this.marcadores[marcador].remove();
-       delete this.marcadores[marcador];
-  
-        });
+      // console.log('me llega un mensaje de borrar el marcador ', marcador);
+      this.marcadores[marcador].remove();
+      delete this.marcadores[marcador];
+
+    });
 
   }
 
-  borrarMarcador(id: string){
+  borrarMarcador(id: string) {
 
   }
 
