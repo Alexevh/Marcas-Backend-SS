@@ -14,7 +14,7 @@ export class DirectorGuard implements CanActivate {
 
   canActivate() {
 
-    if (this.uservice.usuario.rol === 'r-director'){
+    if (this.uservice.usuario.rol === 'r-superadmin'){
 
     return true;
 

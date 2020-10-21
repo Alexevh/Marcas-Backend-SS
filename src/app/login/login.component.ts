@@ -43,7 +43,10 @@ export class LoginComponent implements OnInit {
     return;
     }
 
-    let usuario = new Usuario(null, formulario.value.uid, formulario.value.password, null, null, null, null, null, null  );
+    /*  En este caso el ultimo valor que es el UID no hace referencia al veredaero UID sino que es el mail que en este sistema
+     es el UID tambien, dejo ambos por plantilla
+    */
+    let usuario = new Usuario(null, null, formulario.value.password, null, null, null, null, null, formulario.value.uid  );
 
     this.usrService.login(usuario, formulario.value.recuerdame).subscribe( (resp:any) => {
 

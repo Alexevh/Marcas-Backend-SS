@@ -37,6 +37,7 @@ export class UsuarioService {
     /* llamo al post, podria mandar los parametros aparte pero como en usuario tengo todo no es requerido */
     return this.http.post(url, usuario).pipe(
       map((resp: any) => {
+        console.log('me trajo de usuario', resp);
         this.guardarStorage(resp.token, resp.usuario, resp.menu);
 
         /* voy a suscribirme a los cambios de conexion */
