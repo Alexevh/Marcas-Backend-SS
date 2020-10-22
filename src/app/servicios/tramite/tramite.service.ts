@@ -10,7 +10,7 @@ import { Documento } from '../../modelos/documento.model';
 })
 export class TramiteService {
 
-
+ 
   tramites: Tramite[] = [];
   tramiteActual: Tramite;
   token: string;

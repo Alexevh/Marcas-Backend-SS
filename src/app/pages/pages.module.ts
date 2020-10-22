@@ -39,6 +39,8 @@ import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
 
 import { GmapaconsularComponent } from './gmapaconsular/gmapaconsular.component';
 import { GmapComponent } from '../componentes/gmap/gmap.component';
+import { MarcasComponent } from './marcas/marcas.component';
+
 
 
 
@@ -69,6 +71,7 @@ import { GmapComponent } from '../componentes/gmap/gmap.component';
         GmapComponent,
         MapaconsularComponent,
         GmapaconsularComponent,
+        MarcasComponent,
         
         
        

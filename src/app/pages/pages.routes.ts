@@ -22,6 +22,7 @@ import { VerificatokenGuard } from '../servicios/guards/verificatoken.guard';
 import { ChatSistemaComponent } from './chat-sistema/chat-sistema.component';
 import { MapaconsularComponent } from './mapaconsular/mapaconsular.component';
 import { GmapaconsularComponent } from './gmapaconsular/gmapaconsular.component';
+import { MarcasComponent } from './marcas/marcas.component';
 
 
 
@@ -46,7 +47,7 @@ const pagesRoutes: Routes = [
                     {path: 'ajustes', component: AjustesPersonalesComponent, data: {titulo: 'Ajustes'}},
                     {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
                     {path: 'personas', component: PersonasComponent, data: {titulo: 'Personas'}},
-                    {path: 'tramites', component: TramitesComponent, data: {titulo: 'Tramites'}, canActivate: [VerificatokenGuard]},
+                    {path: 'marcas', component: MarcasComponent, data: {titulo: 'Marcas'}, canActivate: [VerificatokenGuard]},
                     {path: 'tramite/:id', component: TramiteComponent, data: {titulo: 'Actualizar Tramite'}},
                     {path: 'busqueda/:termino', component: BusquedaComponent, data: {titulo: 'Busqueda general'}},
                     {path: 'chat', component: ChatSistemaComponent, data: {titulo: 'Chat'}},

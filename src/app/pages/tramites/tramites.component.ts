@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TramiteService } from '../../servicios/tramite/tramite.service';
 import { Tramite } from 'src/app/modelos/tramite.model';
 import { ModaluploadService } from 'src/app/servicios/servicios.index';
-
+ 
 @Component({
   selector: 'app-tramites',
   templateUrl: './tramites.component.html',
