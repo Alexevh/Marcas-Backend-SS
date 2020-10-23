@@ -12,7 +12,7 @@ export class Usuario{
         public mision: string,
         public _id: string,
         public token: string,
-        public avatar: string,
+        public foto: string,
         public email: string
 
     ){}

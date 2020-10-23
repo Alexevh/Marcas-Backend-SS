@@ -56,6 +56,7 @@ export class SubirArchivoService {
        xhr.setRequestHeader('token', this._usuarioService.token);
      
       */
+     //console.log('La url para el post es ',url)
       xhr.open("PUT", url, true);
       xhr.send(formData);
     });

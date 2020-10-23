@@ -18,6 +18,7 @@ export class ImagenPipe implements PipeTransform {
     //si no viene una imagen tiro cualquier sarasa y el backend devuelve una foto por defecto
     if (!imagen){
       url+='/usuarios/xxx'+'?token='+token;
+      
       return url;
     }
 
@@ -30,6 +31,7 @@ export class ImagenPipe implements PipeTransform {
 
       case 'usuario':
          url+='/usuarios/'+imagen+'?token='+token;
+         
       break;
 
       case 'persona':
