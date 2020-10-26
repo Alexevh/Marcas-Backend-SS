@@ -35,25 +35,25 @@
                     <table class="table table-hover">
 
                             <thead>
-                                <th>Imagen</th>
+                                <th>Foto</th>
                                 <th>Nombre</th>
                                 <th>Email</th>
-                                <th>Mision</th>
-                                <th>Rol</th>
-                                <th>Opciones</th>
+                                <th>Rol</th>                        
+                               <th>Opciones</th>
                             </thead>
     
                             <tbody>
                                 <tr *ngFor="let usuario of usuarios">
-                                    <td class="w70">  <img [src]="usuario.foto | imagen" class="img50 img-circle"(click)="mostrarModal(usuario._id)" > </td>
+                                    <td class="w70">  <img [src]="usuario.foto | imagen "   class="img50 img-circle"(click)="mostrarModal(usuario._id)" > </td>
                                     <td> {{usuario.nombre}}</td>
                                     <td> {{usuario.email}}</td>
-                                    <td>{{usuario.mision}}</td>
+                                  
                                     <td>
                                         <select [(ngModel)]="usuario.rol" name="role" class="form-control">
-                                            <option value="r-administrador"> Administrador</option>
-                                            <option value="r-director"> Director</option>
-                                            <option value="r-gestor"> Gestor</option>
+                                            <option  value="r-superadmin"> Super Admin</option>
+                                            <option value="r-administrativo"> Administrativo</option>
+                                            <option value="r-trabajador"> Trabajador</option>
+                                            
                                          </select>
 
                                     </td>

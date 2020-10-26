@@ -60,12 +60,12 @@ export class WebsocketService {
 
 
    /* voy a registrar al usuario en el websocket */
-public loginWS(nombre: string, foto: string, mision: string){
+public loginWS(nombre: string, foto: string, rol: string){
 
   
 
   console.log('Configurando a...', nombre);
-  this.socket.emit('configurar-usuario', {nombre, foto, mision}, (resp)=> {
+  this.socket.emit('configurar-usuario', {nombre, foto, rol}, (resp)=> {
   console.log(resp);
 
   });

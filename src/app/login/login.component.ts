@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     /*  En este caso el ultimo valor que es el UID no hace referencia al veredaero UID sino que es el mail que en este sistema
      es el UID tambien, dejo ambos por plantilla
     */
-    let usuario = new Usuario(null, null, formulario.value.password, null, null, null, null, null, formulario.value.uid  );
+    let usuario = new Usuario(null, null, formulario.value.password, null, null, null, null, formulario.value.uid  );
 
     this.usrService.login(usuario, formulario.value.recuerdame).subscribe( (resp:any) => {
 
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       this.wss.loginWS(
         this.usrService.usuario.nombre,
         this.usrService.usuario.foto,
-        this.usrService.usuario.mision
+        formulario.value.uid || null
       );
       
       this.router.navigate(['/dashboard']);

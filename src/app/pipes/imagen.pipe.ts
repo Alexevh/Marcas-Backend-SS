@@ -11,9 +11,10 @@ export class ImagenPipe implements PipeTransform {
     
     let url = URL_SERVICIOS+'/documentos'
     let token = localStorage.getItem('token');
+  
 
-    //console.log('me lleg de  imagen ', imagen);
-    //console.log('me lleg de  tipo ', tipo);
+    console.log('me lleg de  imagen ', imagen);
+    console.log('me lleg de  tipo ', tipo);
 
     //si no viene una imagen tiro cualquier sarasa y el backend devuelve una foto por defecto
     if (!imagen){
@@ -29,8 +30,13 @@ export class ImagenPipe implements PipeTransform {
 
     switch(tipo){
 
+     
+
       case 'usuario':
+        
          url+='/usuarios/'+imagen+'?token='+token;
+
+         console.log('retorno la url', url);
          
       break;
 

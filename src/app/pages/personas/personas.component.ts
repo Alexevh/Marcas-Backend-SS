@@ -3,20 +3,26 @@ import { PersonaService } from '../../servicios/persona/persona.service';
 import { ModaluploadService } from 'src/app/componentes/modalupload/modalupload.service';
 import { Persona } from 'src/app/modelos/persona.model';
 import Swal from "sweetalert2";
+import { Usuario } from '../../modelos/usuario.model';
+import { UsuarioService } from '../../servicios/usuario/usuario.service';
 
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
   styleUrls: ['./personas.component.css']
 })
+
+
+/* En la plantilla original Persona es un concepto diferente a Usuarios, pero en este sistema son la misma cosa */
+
 export class PersonasComponent implements OnInit {
-  personas: Persona[] = [];
+  usuarios: Usuario[] = [];
   desde: number = 0;
   totalRegistros: number = 0;
   cargando = false;
 
   constructor(
-    public personasrv: PersonaService,
+    public usrSrv: UsuarioService,
     public modalservice: ModaluploadService
   ) { }
 
@@ -48,10 +54,10 @@ export class PersonasComponent implements OnInit {
 
   cargarPersonas() {
     this.cargando = true;
-    this.personasrv.cargarPersonas(this.desde).subscribe((resp: any) => {
+    this.usrSrv.cargarUsuarios(this.desde).subscribe((resp: any) => {
       
       this.totalRegistros = resp.cantidad;
-      this.personas = resp.personas;
+      this.usuarios = resp.usuarios;
       
       this.cargando = false;
     });
@@ -64,9 +70,9 @@ export class PersonasComponent implements OnInit {
   }
 
 
-  guardarPersona(persona: Persona){
+  guardarPersona(usuario: Usuario){
 
-    this.personasrv.actualizarPersona(persona).subscribe(
+    this.usrSrv.actualizarUsuario(usuario).subscribe(
       (usuario) => {
         Swal.fire({
           title: "Exito!",
@@ -88,12 +94,12 @@ export class PersonasComponent implements OnInit {
 
   }
 
-  borrarPersona(persona: Persona) {
+  borrarPersona(usuario: Usuario) {
   
 
     //voy apreguntar si esta seguro
     Swal.fire({
-      title: "estas seguro de eliminar a " + persona.nombre + "?",
+      title: "estas seguro de eliminar a " + usuario.nombre + "?",
       text: "No se puede deshacer!",
       icon: "warning",
       showCancelButton: true,
@@ -102,10 +108,10 @@ export class PersonasComponent implements OnInit {
       confirmButtonText: "Si, borrar!",
     }).then((result) => {
       if (result.value) {
-        this.personasrv.borrarPersona(persona).subscribe((resp: any) => {
+        this.usrSrv.borrarUsuario(usuario).subscribe((resp: any) => {
           Swal.fire(
             "Se elimino! ",
-            "El usuario" + resp.persona.nombre + " ha sido borrado.",
+            "El usuario" + resp.usuario.nombre + " ha sido borrado.",
             "success"
           );
         });
@@ -121,8 +127,8 @@ export class PersonasComponent implements OnInit {
 
     if (termino.length > 1) {
       this.cargando = true;
-      this.personasrv.buscarPersonas(termino).subscribe((resp: any) => {
-        this.personas = resp.datos;
+      this.usrSrv.buscarUsuarios(termino).subscribe((resp: any) => {
+        this.usuarios = resp.datos;
         this.cargando = false;
       });
       return;

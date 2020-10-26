@@ -9,11 +9,11 @@ export class Usuario{
         public uid: string,
         public password: string,
         public rol: string,
-        public mision: string,
         public _id: string,
         public token: string,
         public foto: string,
-        public email: string
+        public email: string,
+        
 
     ){}
     

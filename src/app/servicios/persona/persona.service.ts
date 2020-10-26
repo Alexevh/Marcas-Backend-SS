@@ -3,6 +3,7 @@ import { Persona } from 'src/app/modelos/persona.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { URL_SERVICIOS } from 'src/app/config/config';
 import { UsuarioService } from '../usuario/usuario.service';
+import { Usuario } from '../../modelos/usuario.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,14 +46,14 @@ export class PersonaService {
    
   }
 
-  borrarPersona(persona: Persona){
+  borrarPersona(usuario: Usuario){
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
       "x-token": this.token,
     });
     
 
-    let url = URL_SERVICIOS+"/persona/"+persona._id;
+    let url = URL_SERVICIOS+"/persona/"+usuario._id;
     return this.http.delete(url, { headers: reqHeaders });
   
    }

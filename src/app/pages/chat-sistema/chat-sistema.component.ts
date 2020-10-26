@@ -33,7 +33,7 @@ export class ChatSistemaComponent implements OnInit {
     this.wss.loginWS(
       this.usuario.nombre,
       this.usuario.foto,
-      this.usuario.mision
+      this.usuario.rol
     );
     this.mensajes = this.chat.mensajes;
     /* obtengo la ereferencia a la caja de chat ya que voy a hacer un scroll automatico */

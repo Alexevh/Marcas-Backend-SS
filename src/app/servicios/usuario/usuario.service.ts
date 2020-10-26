@@ -45,7 +45,7 @@ export class UsuarioService {
           
           console.log('El server se reconecto, me vouelvo a registrar');
           /* voy a escoger registrarme aca en el websocketservice pero podria hacerlo en otra parte */
-          this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.mision);
+          this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.rol);
 
         });
 
@@ -66,7 +66,7 @@ export class UsuarioService {
 
     /* voy a escoger registrarme aca en el websocketservice pero podria hacerlo en otra parte */
     this.cargarStorage();
-    this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.mision);
+    //this.wsService.loginWS(this.usuario.nombre, this.usuario.foto, this.usuario.mision);
 
   }
 
@@ -127,7 +127,7 @@ export class UsuarioService {
   }
 
   actualizarUsuario(usuario: Usuario) {
-    let url = URL_SERVICIOS + "/usuario/" + usuario._id;
+    let url = URL_SERVICIOS + "/user/" + usuario._id;
 
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
@@ -168,7 +168,7 @@ export class UsuarioService {
   }
 
   cargarUsuarios(desde) {
-    let url = URL_SERVICIOS + "/usuarios?desde=" + desde;
+    let url = URL_SERVICIOS + "/user/todos?desde=" + desde;
     var reqHeaders = new HttpHeaders({
       "Content-Type": "application/json",
       "x-token": this.token,

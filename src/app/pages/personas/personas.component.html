@@ -38,33 +38,23 @@
                                   <th>Imagen</th>
                                   <th>Nombre</th>
                                  
-                                  <th>Nacionalidad</th>
-                                  <th>Tipo documento</th>
-                                  <th>Numero doc</th>
-                                  <th>Huellas</th>
+                                  <th>Email</th>
+                                 
+               
                                   <th>Opciones</th>
                               </thead>
       
                               <tbody>
-                                  <tr *ngFor="let persona of personas">
-                                      <td class="w70">  <img [src]="persona.foto | imagen: 'persona'" class="img50 img-circle"(click)="mostrarModal(persona._id,'foto')" > </td>
-                                      <td> {{persona.nombre}}</td>
+                                  <tr *ngFor="let usuario of usuarios">
+                                      <td class="w70">  <img [src]="usuario.foto | imagen: 'usuario'" class="img50 img-circle"(click)="mostrarModal(persona._id,'foto')" > </td>
+                                      <td> {{usuario.nombre}}</td>
                                       
-                                      <td> {{persona.nacionalidad}}</td>
-                                      <td>
-                                          <select [(ngModel)]="persona.tipoDocumento" name="role" class="form-control">
-                                              <option value="Pasaporte"> Pasaporte</option>
-                                              <option value="Cedula"> CI - Uruguaya</option>
-                                              <option value="Otro"> Otro</option>
-                                           </select>
-  
-                                      </td>
-                                      <td>{{persona.documentoNumero}}</td>
-                                      <td class="w70">  <img [src]="persona.huellas | imagen: 'persona'" class="img50 "(click)="mostrarModal(persona._id, 'huellas')" > </td>
-
+                                      <td> {{usuario.email}}</td>
+                                     
+                                   
                                   
-                                      <td><button (click)="guardarPersona(persona)"  class="btn btn-primary"><i class="fa fa-save"></i></button>
-                                          <button (click)="borrarPersona(persona)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
+                                      <td><button (click)="guardarPersona(usuario)"  class="btn btn-primary"><i class="fa fa-save"></i></button>
+                                          <button (click)="borrarPersona(usuario)" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>
                                       </td>
                                   </tr>
       
